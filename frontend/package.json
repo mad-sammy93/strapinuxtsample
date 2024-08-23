@@ -11,11 +11,11 @@
     "generate-types": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.1",
     "@graphql-codegen/cli": "^4.0.1",
     "@graphql-codegen/typescript": "^4.0.1",
     "@graphql-codegen/typescript-operations": "^4.0.1",
-    "@nuxtjs/apollo": "5.0.0-alpha.6",
+    "@nuxtjs/apollo": "^5.0.0-alpha.14",
+    "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt": "^3.12.4",
     "vue": "latest"
   }

@@ -20,7 +20,7 @@
   resolved "https://registry.npmjs.org/@antfu/utils/-/utils-0.7.10.tgz"
   integrity sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==
 
-"@apollo/client@^3.7.10":
+"@apollo/client@^3.9.5":
   version "3.11.4"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.11.4.tgz#8b0fed2d091d47597e8ddafca85776bf612ae3aa"
   integrity sha512-bmgYKkULpym8wt8aXlAZ1heaYo0skLJ5ru0qJ+JCRoo03Pe+yIDbBCnqlDw6Mjj76hFkDw3HwFMgZC2Hxp30Mg==
@@ -1581,7 +1581,7 @@
     which "^3.0.1"
     ws "^8.18.0"
 
-"@nuxt/kit@3.12.4", "@nuxt/kit@^3.11.2", "@nuxt/kit@^3.12.3", "@nuxt/kit@^3.12.4", "@nuxt/kit@^3.3.1":
+"@nuxt/kit@3.12.4", "@nuxt/kit@^3.11.2", "@nuxt/kit@^3.12.3", "@nuxt/kit@^3.12.4":
   version "3.12.4"
   resolved "https://registry.npmjs.org/@nuxt/kit/-/kit-3.12.4.tgz"
   integrity sha512-aNRD1ylzijY0oYolldNcZJXVyxdGzNTl+Xd0UYyFQCu9f4wqUZqQ9l+b7arCEzchr96pMK0xdpvLcS3xo1wDcw==
@@ -1607,6 +1607,32 @@
     unimport "^3.9.0"
     untyped "^1.4.2"
 
+"@nuxt/kit@^3.10.3":
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.13.0.tgz#95d56b7eb2c54ad7873b4e3a9cd7c6fe3bbd3c81"
+  integrity sha512-gbhSbDvYfkGQ0R2ztqTLQLHRMv+7g50kAKKuN6mbF4tL9jg7NPnQ8bAarn2I4Qx8xtmwO+qY1ABkmYMn5S1CpA==
+  dependencies:
+    "@nuxt/schema" "3.13.0"
+    c12 "^1.11.1"
+    consola "^3.2.3"
+    defu "^6.1.4"
+    destr "^2.0.3"
+    globby "^14.0.2"
+    hash-sum "^2.0.0"
+    ignore "^5.3.2"
+    jiti "^1.21.6"
+    klona "^2.0.6"
+    knitwork "^1.1.0"
+    mlly "^1.7.1"
+    pathe "^1.1.2"
+    pkg-types "^1.1.3"
+    scule "^1.3.0"
+    semver "^7.6.3"
+    ufo "^1.5.4"
+    unctx "^2.3.1"
+    unimport "^3.11.0"
+    untyped "^1.4.2"
+
 "@nuxt/schema@3.12.4", "@nuxt/schema@^3.12.4":
   version "3.12.4"
   resolved "https://registry.npmjs.org/@nuxt/schema/-/schema-3.12.4.tgz"
@@ -1623,6 +1649,24 @@
     ufo "^1.5.4"
     uncrypto "^0.1.3"
     unimport "^3.9.0"
+    untyped "^1.4.2"
+
+"@nuxt/schema@3.13.0":
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/@nuxt/schema/-/schema-3.13.0.tgz#104ce5fdca095ba98268a3dfe47c92e657d08f0d"
+  integrity sha512-JBGSjF9Hd8guvTV2312eM1RulCMJc50yR3CeMZPLDsI02A8TXQnABS8EbgvGRvxD43q/ITjj21B2ffG1wEVrnQ==
+  dependencies:
+    compatx "^0.1.8"
+    consola "^3.2.3"
+    defu "^6.1.4"
+    hookable "^5.5.3"
+    pathe "^1.1.2"
+    pkg-types "^1.1.3"
+    scule "^1.3.0"
+    std-env "^3.7.0"
+    ufo "^1.5.4"
+    uncrypto "^0.1.3"
+    unimport "^3.11.0"
     untyped "^1.4.2"
 
 "@nuxt/telemetry@^2.5.4":
@@ -1687,22 +1731,23 @@
     vite-plugin-checker "^0.7.2"
     vue-bundle-renderer "^2.1.0"
 
-"@nuxtjs/apollo@5.0.0-alpha.6":
-  version "5.0.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/apollo/-/apollo-5.0.0-alpha.6.tgz#51f5b8059a9d2527b3b1e5a2e9b06e6c576615bb"
-  integrity sha512-CRosywHMy5UUiXxNm7ji2QztyRWTYSvNXXnXS7WENtONG8molHABe72PCfMpRSPzeJu7JYb9S03dcZkLBirAJQ==
+"@nuxtjs/apollo@^5.0.0-alpha.14":
+  version "5.0.0-alpha.14"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/apollo/-/apollo-5.0.0-alpha.14.tgz#6a25b9591ef4a815725f5c39ba98dea211c8c594"
+  integrity sha512-Mri3ZV2+d4u15Uk9u97RuKnP8XglScBKsUHQoyzDubwmJ7RwzSdCTb5gkQ5WnkzgJThnlS55y8M1F49rMjY09g==
   dependencies:
-    "@apollo/client" "^3.7.10"
-    "@nuxt/kit" "^3.3.1"
-    "@rollup/plugin-graphql" "^2.0.3"
-    "@vue/apollo-composable" "4.0.0-beta.4"
-    defu "^6.1.2"
-    destr "^1.2.2"
-    graphql "^16.6.0"
+    "@apollo/client" "^3.9.5"
+    "@nuxt/kit" "^3.10.3"
+    "@rollup/plugin-graphql" "^2.0.4"
+    "@vue/apollo-composable" "^4.0.1"
+    "@vue/apollo-option" "^4.0.0"
+    defu "^6.1.4"
+    destr "^2.0.3"
+    graphql "^16.8.1"
     graphql-tag "^2.12.6"
-    graphql-ws "^5.12.0"
-    jiti "^1.18.2"
-    ohash "^1.0.0"
+    graphql-ws "^5.15.0"
+    jiti "^1.21.0"
+    ohash "^1.1.3"
 
 "@nuxtjs/tailwindcss@^6.12.1":
   version "6.12.1"
@@ -1875,7 +1920,7 @@
     is-reference "1.2.1"
     magic-string "^0.30.3"
 
-"@rollup/plugin-graphql@^2.0.3":
+"@rollup/plugin-graphql@^2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-graphql/-/plugin-graphql-2.0.4.tgz#240aee16b4be10f3e9f879b6146af689cc10e07c"
   integrity sha512-TfaqbbK71VHodCDCoRbPnv2+Tsnlvad2OsGEviURHFl+ZBUyf5wfXgXc9RqZ+xKxSl87Z3YbPhD0z6eWYjuByw==
@@ -2156,14 +2201,21 @@
     local-pkg "^0.5.0"
     magic-string-ast "^0.6.2"
 
-"@vue/apollo-composable@4.0.0-beta.4":
-  version "4.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@vue/apollo-composable/-/apollo-composable-4.0.0-beta.4.tgz#a93cbccfdcf9558ada0161294b42f77bee5e6a0b"
-  integrity sha512-lErWL+9LGfWfdfrSYY3DQB/A8Asqs46MiKwmgKeKSj7fe01tx0UpH43aiwMGj+VgEzBZ9AfqEa/Bxf0Nff/NNw==
+"@vue/apollo-composable@^4.0.1":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@vue/apollo-composable/-/apollo-composable-4.2.0.tgz#eef39b8ecf006f444be68e1876d638aadf783e92"
+  integrity sha512-FvELy3N0L1R+Hvs6v4/OSjV5YDK1smYI4k9r0Zfzezo2uQYi1AYRzkgTYrG43MhDVs9/L85NEszfdMISacO/Iw==
   dependencies:
-    throttle-debounce "^3.0.1"
-    ts-essentials "^9.1.2"
-    vue-demi "^0.13.1"
+    throttle-debounce "^5.0.0"
+    ts-essentials "^9.4.0"
+    vue-demi "^0.14.6"
+
+"@vue/apollo-option@^4.0.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@vue/apollo-option/-/apollo-option-4.2.0.tgz#c81dd22198680953063276a83a4ebcb1baf9bd93"
+  integrity sha512-JYqtSY+dHoOM10o2L+EVY+nDxsmT9lb1Z3Z7VBzBQ3f0np+A1TFldZw9gYNbSS6QYgyGw376+Z/EtOqJ9JoaZw==
+  dependencies:
+    throttle-debounce "^5.0.0"
 
 "@vue/babel-helper-vue-transform-on@1.2.2":
   version "1.2.2"
@@ -3489,7 +3541,7 @@ define-lazy-prop@^3.0.0:
   resolved "https://registry.npmjs.org/define-lazy-prop/-/define-lazy-prop-3.0.0.tgz"
   integrity sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==
 
-defu@^6.1.2, defu@^6.1.4:
+defu@^6.1.4:
   version "6.1.4"
   resolved "https://registry.npmjs.org/defu/-/defu-6.1.4.tgz"
   integrity sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==
@@ -3518,11 +3570,6 @@ dependency-graph@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/dependency-graph/-/dependency-graph-0.11.0.tgz#ac0ce7ed68a54da22165a85e97a01d53f5eb2e27"
   integrity sha512-JeMq7fEshyepOWDfcfHK06N3MhyPhz++vtqWhMT5O9A3K42rdsEDpfdVqjaqaAhsw6a+ZqeDvQVtD0hFHQWrzg==
-
-destr@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/destr/-/destr-1.2.2.tgz#7ba9befcafb645a50e76b260449c63927b51e22f"
-  integrity sha512-lrbCJwD9saUQrqUfXvl6qoM+QN3W7tLV5pAOs+OqOmopCCz/JkE05MHedJR1xfk4IAnZuJXPVuN5+7jNA2ZCiA==
 
 destr@^2.0.3:
   version "2.0.3"
@@ -4249,12 +4296,12 @@ graphql-tag@^2.11.0, graphql-tag@^2.12.6:
   dependencies:
     tslib "^2.1.0"
 
-graphql-ws@^5.12.0, graphql-ws@^5.14.0:
+graphql-ws@^5.14.0, graphql-ws@^5.15.0:
   version "5.16.0"
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.16.0.tgz#849efe02f384b4332109329be01d74c345842729"
   integrity sha512-Ju2RCU2dQMgSKtArPbEtsK5gNLnsQyTNIo/T7cZNp96niC1x0KdJNZV0TIoilceBPQwfb5itrGl8pkFeOUMl4A==
 
-graphql@^16.6.0:
+graphql@^16.8.1:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.9.0.tgz#1c310e63f16a49ce1fbb230bd0a000e99f6f115f"
   integrity sha512-GGTKBX4SD7Wdb8mqeDLni2oaRGYQWjWHGKPQ24ZMnUtKfcsVoiv4uX8+LJr1K6U5VW2Lu1BwJnj7uiori0YtRw==
@@ -4442,7 +4489,7 @@ ieee754@^1.1.13, ieee754@^1.2.1:
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
 
-ignore@^5.2.0, ignore@^5.2.4, ignore@^5.3.1:
+ignore@^5.2.0, ignore@^5.2.4, ignore@^5.3.1, ignore@^5.3.2:
   version "5.3.2"
   resolved "https://registry.npmjs.org/ignore/-/ignore-5.3.2.tgz"
   integrity sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==
@@ -5602,7 +5649,7 @@ ofetch@^1.3.3, ofetch@^1.3.4:
     node-fetch-native "^1.6.3"
     ufo "^1.5.3"
 
-ohash@^1.0.0, ohash@^1.1.3:
+ohash@^1.1.3:
   version "1.1.3"
   resolved "https://registry.npmjs.org/ohash/-/ohash-1.1.3.tgz"
   integrity sha512-zuHHiGTYTA1sYJ/wZN+t5HKZaH23i4yI1HMwbuXm24Nid7Dv0KcuRlKoNKS9UNfAVSBlnGLcuQrnOKWOZoEGaw==
@@ -7057,10 +7104,10 @@ thenify-all@^1.0.0:
   dependencies:
     any-promise "^1.0.0"
 
-throttle-debounce@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-3.0.1.tgz#32f94d84dfa894f786c9a1f290e7a645b6a19abb"
-  integrity sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg==
+throttle-debounce@^5.0.0:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-5.0.2.tgz#ec5549d84e053f043c9fd0f2a6dd892ff84456b1"
+  integrity sha512-B71/4oyj61iNH0KeCamLuE2rmKuTO5byTOSVwECM5FA7TiAiAW+UqTKZ9ERueC4qvgSttUhdmq1mXC3kJqGX7A==
 
 through@^2.3.6, through@^2.3.8:
   version "2.3.8"
@@ -7118,7 +7165,7 @@ tr46@~0.0.3:
   resolved "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz"
   integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
 
-ts-essentials@^9.1.2:
+ts-essentials@^9.4.0:
   version "9.4.2"
   resolved "https://registry.yarnpkg.com/ts-essentials/-/ts-essentials-9.4.2.tgz#6d4bd23b46b61bf3e031816cc887e839eb62c33c"
   integrity sha512-mB/cDhOvD7pg3YCLk2rOtejHjjdSi9in/IBYE13S+8WA5FBSraYf4V/ws55uvs0IvQ/l0wBOlXy5yBNZ9Bl8ZQ==
@@ -7245,6 +7292,25 @@ unimport@^3.10.1, unimport@^3.7.2, unimport@^3.9.0:
   version "3.10.1"
   resolved "https://registry.npmjs.org/unimport/-/unimport-3.10.1.tgz"
   integrity sha512-gK0oqn2SyPEjmp5O0Epu13xmX1Pfn4MwpJNlntXUauV0wN8Hhod+BNjDjqQ4ZpOSCt17MCLjGqUXqUhAiJuhOw==
+  dependencies:
+    "@rollup/pluginutils" "^5.1.0"
+    acorn "^8.12.1"
+    escape-string-regexp "^5.0.0"
+    estree-walker "^3.0.3"
+    fast-glob "^3.3.2"
+    local-pkg "^0.5.0"
+    magic-string "^0.30.11"
+    mlly "^1.7.1"
+    pathe "^1.1.2"
+    pkg-types "^1.1.3"
+    scule "^1.3.0"
+    strip-literal "^2.1.0"
+    unplugin "^1.12.2"
+
+unimport@^3.11.0:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/unimport/-/unimport-3.11.0.tgz#2107bbb2d9b0499d46d05eb47bf8c6ebcf37d9e8"
+  integrity sha512-mPrvWwy+li8TLUeglC7CIREFAbeEMkJ8X2Bhxg4iLdh+HraxjFyxqWv8V+4lzekoGHChx9ofv1qGOfvHBJBl0A==
   dependencies:
     "@rollup/pluginutils" "^5.1.0"
     acorn "^8.12.1"
@@ -7532,10 +7598,10 @@ vue-bundle-renderer@^2.1.0:
   dependencies:
     ufo "^1.5.3"
 
-vue-demi@^0.13.1:
-  version "0.13.11"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.13.11.tgz#7d90369bdae8974d87b1973564ad390182410d99"
-  integrity sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==
+vue-demi@^0.14.6:
+  version "0.14.10"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.14.10.tgz#afc78de3d6f9e11bf78c55e8510ee12814522f04"
+  integrity sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==
 
 vue-devtools-stub@^0.1.0:
   version "0.1.0"

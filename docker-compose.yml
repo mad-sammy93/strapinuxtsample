@@ -2,29 +2,33 @@ services:
   
   frontend:
     image: node:18-alpine
+    command: yarn start
     build:
       context: ./frontend
-      dockerfile: ./frontend/Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "4400:4400"
     volumes:
       - ./frontend:/app    
-    working_dir: /app/frontend
+    working_dir: /app
     depends_on:
       - strapi
 
   strapi:
     image: node:18-alpine
+    command: yarn develop
     build:
       context: ./strapi
-      dockerfile: ./strapi/Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "4500:4500"
     volumes:
       - ./strapi:/app
     # depends_on:
     #   - db
-    working_dir: /app/strapi
+    working_dir: /app
+    # environment:
+    #   NODE_ENV: development
 
 #   db:
 #     image: mysql:8.0.36
