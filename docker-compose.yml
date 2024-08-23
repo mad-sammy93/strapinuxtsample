@@ -2,7 +2,7 @@ services:
   
   frontend:
     image: node:18-alpine
-    command: yarn start
+    command: yarn dev
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -16,7 +16,7 @@ services:
 
   strapi:
     image: node:18-alpine
-    command: yarn develop
+    command: yarn develop --debug
     build:
       context: ./strapi
       dockerfile: Dockerfile
@@ -27,8 +27,8 @@ services:
     # depends_on:
     #   - db
     working_dir: /app
-    # environment:
-    #   NODE_ENV: development
+    environment:
+      NODE_ENV: development
 
 #   db:
 #     image: mysql:8.0.36

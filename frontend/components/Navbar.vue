@@ -2,6 +2,7 @@
 // const user = useSupabaseUser()
 // const supabase = useSupabaseClient()
 
+const Site_title = ref("Curry & Co.")
 const logout = async () => {
   // const {error} = await supabase.auth.signOut()
   // // navigateTo('/')
@@ -24,15 +25,14 @@ const logout = async () => {
 </script>
 <template>
   <header
-    class="header sticky top-0 z-50 flex justify-between items-center space-x-1 border-b bg-rose-700 p-4 shadow-md">
-    <!-- {{user}} -->
-    <NuxtLink class="text-3xl font0mono text-yellow-400" to="/">Curry & Co</NuxtLink>
+    class="bg-opacity-25 header sticky top-0 z-50 flex justify-between items-center space-x-1  bg-gray-800 p-4 shadow-md">
+    <NuxtLink class="text-3xl font0mono text-yellow-400 [text-shadow:_0px_1px_10px_rgb(0_0_0_/_80%)]" to="/">CURRY & Co.</NuxtLink>
     <div v-if="user" class="flex space-x-2">
-      <NuxtLink to="/" class="text-white mr-5">Profile</NuxtLink>
+      <NuxtLink to="/" class="text-white mr-5 [text-shadow:_0px_1px_10px_rgb(0_0_0_/_80%)]">Profile</NuxtLink>
       <p @click="logout" class="text-white mr-5 cursor-pointer">Logout</p>
     </div>
     <div v-else class="flex space-x-2">
-      <NuxtLink to="/" class="text-white mr-5">Login</NuxtLink>
+      <NuxtLink to="/" class="text-yellow-400 mr-5 text-2xl [text-shadow:_0px_1px_10px_rgb(0_0_0_/_80%)]">LOGIN</NuxtLink>
     </div>
   </header>
 </template>
