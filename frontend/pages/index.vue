@@ -6,20 +6,31 @@ useHead({
 definePageMeta({
   layout: 'homepage'
 })
-const query = gql`
-  query getShips($limit: Int!) {
-    ships(limit: $limit) {
-      id
-      name
+const query = gql`{
+  websiteInfo{
+    data{
+      attributes{
+        site_logo{data{attributes{url}}},
+        Site_name
+      }
+      
     }
   }
-`
+}`;
+
+const site_logo = ref('')
 const variables = { limit: 5 }
-const { data } = await useAsyncQuery(query, variables)
+onMounted(async () => {
+  const { data } = await useAsyncQuery(query, variables)
+  site_logo.value = data.value.websiteInfo.data.attributes.site_logo.data.attributes.url
+})
+
 </script>
 <template>
   <div>
     Welcome    
-    <p>There are {{ data?.ships?.length || 0 }} ships.</p>
+    <p>{{ site_logo }}</p>
+    <!-- <NuxtImg src="http://localhost:4500/uploads/curry_968205a589.png" alt="" class="w-full object-cover" /> -->
+
   </div>
 </template>

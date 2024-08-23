@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chefs",
+  "info": {
+    "singularName": "chef",
+    "pluralName": "chefs",
+    "displayName": "Chef",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "dish": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::dish.dish",
+      "inversedBy": "created_by_chef"
+    }
+  }
+}

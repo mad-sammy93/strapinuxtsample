@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dishes",
+  "info": {
+    "singularName": "dish",
+    "pluralName": "dishes",
+    "displayName": "Dish"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "created_by_chef": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::chef.chef",
+      "mappedBy": "dish"
+    }
+  }
+}
