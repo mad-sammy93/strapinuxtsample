@@ -17,6 +17,7 @@
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/apollo": "^5.0.0-alpha.14",
     "@nuxtjs/tailwindcss": "^6.12.1",
+    "nuxt-swiper": "^1.2.2",
     "nuxt": "^3.12.4",
     "vue": "latest"
   }

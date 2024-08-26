@@ -8,7 +8,7 @@
 defineProps({
   text: String,
   size: {
-    type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '6xl'>,
+    type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' |'6xl'>
   }
 })
 </script>

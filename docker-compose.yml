@@ -16,7 +16,7 @@ services:
 
   strapi:
     image: node:18-alpine
-    command: yarn develop --debug
+    command: yarn develop
     build:
       context: ./strapi
       dockerfile: Dockerfile
