@@ -813,45 +813,6 @@ export interface ApiChefChef extends Schema.CollectionType {
   };
 }
 
-export interface ApiContactContact extends Schema.SingleType {
-  collectionName: 'contacts';
-  info: {
-    singularName: 'contact';
-    pluralName: 'contacts';
-    displayName: 'Contact';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    address: Attribute.Text;
-    Phone: Attribute.Integer &
-      Attribute.SetMinMax<
-        {
-          max: 15;
-        },
-        number
-      >;
-    email: Attribute.Email;
-    Map_location: Attribute.RichText;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::contact.contact',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::contact.contact',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiDishDish extends Schema.CollectionType {
   collectionName: 'dishes';
   info: {
@@ -886,6 +847,7 @@ export interface ApiHomeHome extends Schema.SingleType {
     singularName: 'home';
     pluralName: 'homes';
     displayName: 'Home';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -893,6 +855,7 @@ export interface ApiHomeHome extends Schema.SingleType {
   attributes: {
     slug: Attribute.String & Attribute.Required & Attribute.Unique;
     title: Attribute.String & Attribute.Required;
+    Section: Attribute.Component<'section.section-hero', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -953,7 +916,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::chef.chef': ApiChefChef;
-      'api::contact.contact': ApiContactContact;
       'api::dish.dish': ApiDishDish;
       'api::home.home': ApiHomeHome;
       'api::website-info.website-info': ApiWebsiteInfoWebsiteInfo;

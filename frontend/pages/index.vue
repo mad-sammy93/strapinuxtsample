@@ -1,10 +1,13 @@
 <script setup>
-import { chefQuery,siteName } from "~/graphql/queries";
+import { chefQuery,siteName,homepageContent } from "~/graphql/queries";
 const  { data: siteInfo } = useQueryResult(siteName);
 const  chef  = useQueryResult(chefQuery);
+
+const  { data: homepage }  = useQueryResult(homepageContent);
 const site_logo = ref('')
 const site_name = ref('')
 
+// const sections = ref(homepage.home.data.attributes) 
 definePageMeta({
   layout: 'homepage'
 })
@@ -14,28 +17,39 @@ useHead({
 </script>
 <template>
   <div>
-    <SectionHero 
+    <!-- <pre>{{ homepage?.home?.data?.attributes?.Section }}</pre> -->
+    <SectionHero v-for="hero in homepage?.home?.data?.attributes?.Section " :key="hero.id"
+    :image="hero.image.data.attributes.url" 
+    :data-image="hero.image.data.attributes.url"
+    :quote="hero.quote"
+    :buttonLink="hero.buttonLink"
+    :buttonText="hero.buttonText"
+    quoteSize="4xl"
+     />
+     <SectionChefInfo />
+    <!-- <SectionHero v-for="hero in homepage?.home?.data?.attributes?.Section " :key="hero.id"
     image="https://assets.ju.st/is/2560x0/smart/filters:format(webp):quality(70)/f/111747/5000x3333/38351a2bab/21-09-2165-28b-bby_jus-scrambled-plated-simple-02_rgb.jpg" 
-    quote="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt cupiditate, voluptatum corrupti, aliquid pariatur voluptates"
-    buttonLink="/"
-    buttonText="Test"
+    :data-image="hero.image.data.attributes.url"
+    :quote="hero.quote"
+    :buttonLink="hero.buttonLink"
+    :buttonText="hero.buttonText"
     quoteSize="xl"
-    />
-    <SectionHero 
+     /> -->
+    <!-- <SectionHero 
     image="https://assets.ju.st/is/2560x0/smart/filters:format(jpg):quality(70)/f/111747/5000x3333/4d60140f1e/21-09-2165-28b-bby_jus-scrambled-plated-simple-02_rgb-frit.jpg" 
     quote="aliquid pariatur voluptates "
     buttonLink="/"
     buttonText="Test"
     quoteSize="3xl"
-    />
-    <SectionHero 
+    /> -->
+    <!--<SectionHero 
     image="https://assets.ju.st/is/2560x0/smart/filters:format(jpg):quality(70)/f/111747/5000x3333/4d60140f1e/21-09-2165-28b-bby_jus-scrambled-plated-simple-02_rgb-frit.jpg" 
     quote="aliquid pariatur voluptates "
     buttonLink="/"
     buttonText="Test"
     buttonSize="6xl"
     quoteSize="6xl"
-    /> 
+    />  -->
     <!-- <SectionSlider /> -->
     <!-- <SectionContact /> -->
   </div>

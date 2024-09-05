@@ -9,5 +9,8 @@ https://bitbucket.org/jeschippers/strapinuxtbootstrap/
 ## Install package strapi
 ```docker compose run --rm strapi yarn install```
 
+## Enter container
+```docker  exec -it <container ID> sh```
+
 ## run both contsiners
 ```docker compose up```

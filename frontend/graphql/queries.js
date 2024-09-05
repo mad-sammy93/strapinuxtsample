@@ -43,6 +43,30 @@ export const siteName = gql`
       data {
         attributes {
           Site_name
+          Site_description
+        }
+      }
+    }
+  }
+`
+export const homepageContent = gql`
+  {
+    home {
+      data {
+        attributes {
+          Section {
+            id
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            quote
+            buttonLink
+            buttonText
+          }
         }
       }
     }

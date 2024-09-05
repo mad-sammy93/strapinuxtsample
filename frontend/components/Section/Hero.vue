@@ -1,6 +1,6 @@
 <template>
   <div class="relative w-full" >
-    <NuxtImg v-if="image" :src="image" alt="" class="w-full object-cover top h-screen" />
+    <NuxtImg v-if="image" :src="$getImageUrl(image)" alt="" class="w-full object-cover top h-screen" />
     <AtomQuote :text="quote" :size="quoteSize"/>
     <AtomButton :text="buttonText" :link="buttonLink" class="absolute bottom-1/2 left-1/4" :size="buttonSize"/>
   </div>
