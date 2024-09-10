@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_cta_dishes",
+  "info": {
+    "displayName": "CTA_dishes",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "dishes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dish.dish"
+    }
+  }
+}

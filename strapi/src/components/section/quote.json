@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_section_quotes",
+  "info": {
+    "displayName": "Quote",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "block": {
+      "type": "blocks"
+    }
+  }
+}

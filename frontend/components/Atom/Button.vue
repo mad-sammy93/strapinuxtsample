@@ -10,8 +10,19 @@ defineProps({
   text: String,
   link: String,
   size: {
-    default: '2xl',
-    type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' |'6xl'>,
+    default: 'size_lg',
+    type: String as PropType<Sizes>,
   }
 })
+enum Sizes {
+  size_sm = 'sm',
+  size_md = 'md',
+  size_lg = 'lg',
+  size_xl = 'xl',
+  size_2xl = '2xl',
+  size_3xl = '3xl',
+  size_4xl = '4xl',
+  size_5xl = '5xl',
+  size_6xl = '6xl',
+}
 </script>

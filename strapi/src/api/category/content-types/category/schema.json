@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "chefs",
+  "collectionName": "categories",
   "info": {
-    "singularName": "chef",
-    "pluralName": "chefs",
-    "displayName": "Chef",
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "category",
     "description": ""
   },
   "options": {
@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
@@ -21,9 +21,9 @@
     },
     "dishes": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::dish.dish",
-      "mappedBy": "created_by_chef"
+      "inversedBy": "dish_types"
     }
   }
 }

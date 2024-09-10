@@ -4,6 +4,7 @@
 
 <template>
   <h1>Stylesheet</h1>
-  <pre><StyleSheet /></pre>
+  <pre><Stylesheet /></pre>
+  <SectionChefInfo />
   
 </template>

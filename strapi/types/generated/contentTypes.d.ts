@@ -788,6 +788,43 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.RichText;
+    dishes: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::dish.dish'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiChefChef extends Schema.CollectionType {
   collectionName: 'chefs';
   info: {
@@ -802,7 +839,7 @@ export interface ApiChefChef extends Schema.CollectionType {
   attributes: {
     Name: Attribute.String & Attribute.Required;
     description: Attribute.RichText;
-    dish: Attribute.Relation<'api::chef.chef', 'manyToOne', 'api::dish.dish'>;
+    dishes: Attribute.Relation<'api::chef.chef', 'oneToMany', 'api::dish.dish'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -819,6 +856,7 @@ export interface ApiDishDish extends Schema.CollectionType {
     singularName: 'dish';
     pluralName: 'dishes';
     displayName: 'Dish';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -828,8 +866,13 @@ export interface ApiDishDish extends Schema.CollectionType {
     description: Attribute.RichText;
     created_by_chef: Attribute.Relation<
       'api::dish.dish',
-      'oneToMany',
+      'manyToOne',
       'api::chef.chef'
+    >;
+    dish_types: Attribute.Relation<
+      'api::dish.dish',
+      'manyToMany',
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -846,7 +889,7 @@ export interface ApiHomeHome extends Schema.SingleType {
   info: {
     singularName: 'home';
     pluralName: 'homes';
-    displayName: 'Home';
+    displayName: 'Homepage';
     description: '';
   };
   options: {
@@ -855,13 +898,77 @@ export interface ApiHomeHome extends Schema.SingleType {
   attributes: {
     slug: Attribute.String & Attribute.Required & Attribute.Unique;
     title: Attribute.String & Attribute.Required;
-    Section: Attribute.Component<'section.section-hero', true>;
+    Blocks: Attribute.DynamicZone<
+      [
+        'block.list',
+        'block.hero',
+        'block.cta-dishes',
+        'section.section-hero',
+        'section.quote'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNavigationNavigation extends Schema.SingleType {
+  collectionName: 'navigations';
+  info: {
+    singularName: 'navigation';
+    pluralName: 'navigations';
+    displayName: 'Navigation';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    navitems: Attribute.Component<'nav.nav-items', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::navigation.navigation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::navigation.navigation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    slug: Attribute.String;
+    PageBlock: Attribute.DynamicZone<['block.list', 'block.hero']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -915,9 +1022,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::category.category': ApiCategoryCategory;
       'api::chef.chef': ApiChefChef;
       'api::dish.dish': ApiDishDish;
       'api::home.home': ApiHomeHome;
+      'api::navigation.navigation': ApiNavigationNavigation;
+      'api::page.page': ApiPagePage;
       'api::website-info.website-info': ApiWebsiteInfoWebsiteInfo;
     }
   }

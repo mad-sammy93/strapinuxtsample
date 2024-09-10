@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Navbar />
+    <!-- <Navbar /> -->
     <!-- <Footer /> -->
+     stylesheet
   </div>
 </template>

@@ -5,9 +5,9 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  layout: 'layout-1440'
-})
+// definePageMeta({
+//   layout: 'layout-1440'
+// })
 </script>
 
 <style scoped>

@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_block_heroes",
+  "info": {
+    "displayName": "Hero",
+    "icon": "cloud",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "quoteSize": {
+      "type": "enumeration",
+      "enum": [
+        "size_sm",
+        "size_md",
+        "size_lg",
+        "size_xl",
+        "size_2xl",
+        "size_3xl",
+        "size_4xl",
+        "size_5xl",
+        "size_6xl"
+      ]
+    },
+    "buttonSize": {
+      "type": "enumeration",
+      "enum": [
+        "size_sm",
+        "size_md",
+        "size_lg",
+        "size_xl",
+        "size_2xl",
+        "size_3xl",
+        "size_4xl",
+        "size_5xl",
+        "size_6xl"
+      ]
+    }
+  }
+}

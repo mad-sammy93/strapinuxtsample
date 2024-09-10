@@ -1,11 +1,9 @@
 <script setup>
 import { chefQuery,siteName,homepageContent } from "~/graphql/queries";
-const  { data: siteInfo } = useQueryResult(siteName);
-const  chef  = useQueryResult(chefQuery);
+// const  { data: siteInfo } = useQueryResult(siteName);
+// const  chef  = useQueryResult(chefQuery);
 
 const  { data: homepage }  = useQueryResult(homepageContent);
-const site_logo = ref('')
-const site_name = ref('')
 
 // const sections = ref(homepage.home.data.attributes) 
 definePageMeta({
@@ -14,10 +12,17 @@ definePageMeta({
 useHead({
   title:'CURRY & Co. | Home', // TODO get from strapi
 })
+const blocks =ref()
+blocks.value = homepage?.home?.data?.attributes?.Blocks.map((block) => {
+  return block
+})
 </script>
 <template>
   <div>
-    <!-- <pre>{{ homepage?.home?.data?.attributes?.Section }}</pre> -->
+    <SectionHeader headerTitle="Home"/>
+    <pre>{{ blocks }}</pre>
+
+    <SectionCtaDishes v-if="homepage?.home?.data?.attributes?.Blocks.includes('CtaDishes')" :dishes="homepage?.home?.data.attributes.Blocks[0]"/>
     <SectionHero v-for="hero in homepage?.home?.data?.attributes?.Section " :key="hero.id"
     :image="hero.image.data.attributes.url" 
     :data-image="hero.image.data.attributes.url"
@@ -50,7 +55,7 @@ useHead({
     buttonSize="6xl"
     quoteSize="6xl"
     />  -->
-    <!-- <SectionSlider /> -->
-    <!-- <SectionContact /> -->
+    <SectionCtaDishes />
+    <SectionContact />
   </div>
 </template>
