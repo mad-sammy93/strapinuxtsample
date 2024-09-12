@@ -3,7 +3,7 @@
     <h2>{{listName}}</h2>
     <ul>
       <!-- {{ items }} -->
-      <li v-for="(chef, index) in items" :key="index">{{ chef.attributes.Name }}</li>
+      <li v-for="(item, index) in items" :key="index">{{ item.attributes.Name }}</li>
     </ul>
   </div>
 </template>

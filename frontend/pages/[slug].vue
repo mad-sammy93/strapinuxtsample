@@ -8,8 +8,11 @@
         </template>
         <!-- ComponentBlockHero -->
         <template v-else-if="block.__typename === 'ComponentBlockHero'">
-          <pre>{{ block }}</pre>
           <BlockHero :image="block.image.data.attributes.url" :quote="block.Description" :quoteSize="block.quoteSize" :buttonLink="block.buttonLink" :buttonText="block.buttonText" :buttonSize="block.buttonSize"/>
+        </template>
+        <!-- ComponentBlockHero -->
+        <template v-else-if="block.__typename === 'ComponentBlockCtaDishes'">
+          <BlockCtaDishes :dishes="block.dishes.data" :title="block.title" />
         </template>
       </div>
     </div>
@@ -23,11 +26,4 @@ import { getPageBySlugQuery } from '~/graphql/queries';
 const route = useRoute();
 const slug = route.params.slug;
 const { result, loading, error } = useQuery(getPageBySlugQuery, { slug });
-
-const blocks =ref<any>()
-// blocks.value = result?.pages?.data[0]?.attributes?.PageBlock[0]
 </script>
-
-<style scoped>
-
-</style>

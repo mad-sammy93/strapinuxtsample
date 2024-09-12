@@ -27,9 +27,7 @@
       "components": [
         "block.list",
         "block.hero",
-        "block.cta-dishes",
-        "section.section-hero",
-        "section.quote"
+        "block.cta-dishes"
       ]
     }
   }

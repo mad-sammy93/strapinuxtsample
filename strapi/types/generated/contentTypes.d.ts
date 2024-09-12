@@ -874,6 +874,7 @@ export interface ApiDishDish extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
+    image: Attribute.Media<'images'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -899,13 +900,7 @@ export interface ApiHomeHome extends Schema.SingleType {
     slug: Attribute.String & Attribute.Required & Attribute.Unique;
     title: Attribute.String & Attribute.Required;
     Blocks: Attribute.DynamicZone<
-      [
-        'block.list',
-        'block.hero',
-        'block.cta-dishes',
-        'section.section-hero',
-        'section.quote'
-      ]
+      ['block.list', 'block.hero', 'block.cta-dishes']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -962,7 +957,9 @@ export interface ApiPagePage extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     slug: Attribute.String;
-    PageBlock: Attribute.DynamicZone<['block.list', 'block.hero']>;
+    PageBlock: Attribute.DynamicZone<
+      ['block.list', 'block.hero', 'block.cta-dishes']
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

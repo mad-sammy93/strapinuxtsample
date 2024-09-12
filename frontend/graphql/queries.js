@@ -52,6 +52,7 @@ export const homepageContent = gql`
           title
           slug
           Blocks {
+            __typename
             ... on ComponentBlockList {
               dishes {
                 data {
@@ -64,11 +65,24 @@ export const homepageContent = gql`
             }
             ... on ComponentBlockHero {
               Description
+              buttonText
+              buttonLink
+              quoteSize
+              buttonSize
               image {
                 data {
                   attributes {
                     url
                   }
+                }
+              }
+            }
+            ... on ComponentBlockCtaDishes {
+              __typename
+              title
+              dishes {
+                data {
+                  id
                 }
               }
             }
@@ -85,8 +99,22 @@ export const dishQuery = gql`
       data {
         attributes {
           Name
-          Description
-          Price
+          created_by_chef {
+            data {
+              attributes {
+                Name
+              }
+            }
+          }
+          description
+          image {
+            data {
+              attributes {
+                url
+                alternativeText
+              }
+            }
+          }
         }
       }
     }
@@ -153,6 +181,18 @@ export const getPageBySlugQuery = gql`
               buttonLink
               buttonSize
               quoteSize
+            }
+            ... on ComponentBlockCtaDishes {
+              title
+              dishes {
+                data {
+                  id
+                  attributes {
+                    Name
+                    description
+                  }
+                }
+              }
             }
           }
         }
