@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+  // ssr: true, 
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/apollo', '@nuxt/image'],
   plugins: ['~/plugins/getImageUrl.ts'],
   devServer: {

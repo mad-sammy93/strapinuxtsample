@@ -17,7 +17,7 @@ const dishInfo = ref({
   description: '',
   prebaredBy: '',
 });
-const getChefName =  (id: string) => {
+const getDishName =  (id: string) => {
   console.log(id)
 
   const {result:data} =  useQuery(dishQuery, { id });
@@ -37,7 +37,7 @@ const getChefName =  (id: string) => {
   return dishInfo;
 }
 onMounted(() => {
-  getChefName(`${prop.id}`)
+  getDishName(`${prop.id}`)
 })
 </script>
 <template>

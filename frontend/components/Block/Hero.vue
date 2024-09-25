@@ -8,29 +8,19 @@
 </template>
 
 <script setup lang="ts">
-enum Sizes {
-  'size_sm' = 'sm',
-  'size_md' = 'md',
-  'size_lg' = 'lg',
-  'size_xl' = 'xl',
-  'size_2xl' = '2xl',
-  'size_3xl' = '3xl',
-  'size_4xl' = '4xl',
-  'size_5xl' = '5xl',
-  'size_6xl' = '6xl',
-}
+const { $getImageUrl } = useNuxtApp()
 defineProps({
   image: String,
   quote: String,
   quoteSize: {
-    type: String as PropType<Sizes>,
     default: 'lg', 
+    type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' |'6xl'>,
   },
   buttonLink : String,
   buttonText: String,
   buttonSize: {
     default: 'lg', 
-    type: String as PropType<Sizes>
+    type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' |'6xl'>,
   }
 })
 

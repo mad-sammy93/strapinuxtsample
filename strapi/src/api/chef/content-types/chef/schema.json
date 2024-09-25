@@ -24,6 +24,13 @@
       "relation": "oneToMany",
       "target": "api::dish.dish",
       "mappedBy": "created_by_chef"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

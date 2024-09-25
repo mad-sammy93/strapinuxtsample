@@ -1,7 +1,7 @@
 {
   "collectionName": "components_block_lists",
   "info": {
-    "displayName": "List",
+    "displayName": "CTA_chefs",
     "icon": "bulletList",
     "description": ""
   },
@@ -11,11 +11,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::chef.chef"
-    },
-    "dishes": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::dish.dish"
     },
     "listName": {
       "type": "string"

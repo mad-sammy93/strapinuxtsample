@@ -7,10 +7,5 @@
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const name = route.params.name;
-
-
+const name = Array.isArray(route.params.name) ? route.params.name[0] : route.params.name as string;
 </script>
-<style scoped lang="sass">
-
-</style>

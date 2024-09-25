@@ -19,13 +19,12 @@ export interface NavNavItems extends Schema.Component {
 export interface BlockList extends Schema.Component {
   collectionName: 'components_block_lists';
   info: {
-    displayName: 'List';
+    displayName: 'CTA_chefs';
     icon: 'bulletList';
     description: '';
   };
   attributes: {
     chefs: Attribute.Relation<'block.list', 'oneToMany', 'api::chef.chef'>;
-    dishes: Attribute.Relation<'block.list', 'oneToMany', 'api::dish.dish'>;
     listName: Attribute.String;
   };
 }

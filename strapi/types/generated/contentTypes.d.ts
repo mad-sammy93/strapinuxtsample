@@ -840,6 +840,7 @@ export interface ApiChefChef extends Schema.CollectionType {
     Name: Attribute.String & Attribute.Required;
     description: Attribute.RichText;
     dishes: Attribute.Relation<'api::chef.chef', 'oneToMany', 'api::dish.dish'>;
+    image: Attribute.Media<'images'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
