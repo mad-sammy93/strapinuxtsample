@@ -1,6 +1,7 @@
 <template>
   <div class="shadow rouded overflow-hidde flex justify-between mb-4">
     <div class="flex">
+      {{ item }}
       <img
         :src="image"
         :alt="title"
@@ -24,6 +25,7 @@ defineProps({
   image: String,
   title: String,
   description: String,
-  link: String
+  link: String,
+  item: Object
 })
 </script>

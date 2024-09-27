@@ -28,9 +28,8 @@
       <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10"> -->
 
     
-      <section  class="grid gap-6 mt-10 grid-cols-3">
-        <pre>{{ dishes }}</pre>
-        <MoleculesDishCard class="first:col-span-full" :id="dish.id" :size="(index==0)?'full':'small'" v-for="(dish, index) in dishes" :key="index" />
+      <section class="grid gap-6 mt-10 grid-cols-3">
+        <MoleculesCard class="first:col-span-full" :id="chef.id" :size="(index==0)?'full':'small'" v-for="(chef, index) in chefs" :key="index" :item="chef" :attributes="chef.attributes"/>
       </section>
     </div>
     <!-- </div> -->
@@ -47,7 +46,7 @@ type ListItem = {
 
 defineProps({
   title: String,
-  dishes: {
+  chefs: {
     type: Array as PropType<ListItem[]>,
   }
 })

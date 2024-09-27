@@ -21,7 +21,6 @@
     "PageBlock": {
       "type": "dynamiczone",
       "components": [
-        "block.list",
         "block.hero",
         "block.cta-dishes"
       ]

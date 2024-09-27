@@ -44,45 +44,44 @@ export const siteName = gql`
     }
   }
 `
-export const homepageContent = gql`
-  {
-    home {
-      data {
-        attributes {
-          title
-          slug
-          Blocks {
-            __typename
-            ... on ComponentBlockList {
-              dishes {
-                data {
-                  attributes {
-                    Name
-                    description
-                  }
+
+export const homepageContent = gql`{
+  homepage {
+    data {
+      attributes {
+        blocks {
+          __typename
+          ... on ComponentBlockHero {
+            Description
+            buttonText
+            buttonLink
+            quoteSize
+            buttonSize
+            image {
+              data {
+                attributes {
+                  url
                 }
               }
             }
-            ... on ComponentBlockHero {
-              Description
-              buttonText
-              buttonLink
-              quoteSize
-              buttonSize
-              image {
-                data {
-                  attributes {
-                    url
-                  }
+          }
+          ... on ComponentListListChef {
+            chefs {
+              data {
+                attributes {
+                  Name
+                  description
+                  
                 }
               }
             }
-            ... on ComponentBlockCtaDishes {
-              __typename
-              title
-              dishes {
-                data {
-                  id
+          }
+          ... on ComponentBlockCtaDishes {
+            dishes{
+              data{
+                attributes{
+                  Name
+                  description
                 }
               }
             }
@@ -91,6 +90,7 @@ export const homepageContent = gql`
       }
     }
   }
+}
 `
 
 export const dishQuery = gql`
@@ -156,18 +156,7 @@ export const getPageBySlugQuery = gql`
           slug
           PageBlock {
             __typename
-            ... on ComponentBlockList {
-              listName
-              chefs {
-                data {
-                  attributes {
-                    Name
-                  }
-                }
-              }
-            }
             ... on ComponentBlockHero {
-              __typename
               image {
                 data {
                   attributes {

@@ -21,6 +21,7 @@ const getChefName =  (id: string) => {
   console.log(id)
 
   const {result:data} =  useQuery(dishQuery, { id });
+  
   watchEffect(() => {
     const dish = data?.value?.dish?.data?.attributes;
     if (dish) {

@@ -886,11 +886,11 @@ export interface ApiDishDish extends Schema.CollectionType {
   };
 }
 
-export interface ApiHomeHome extends Schema.SingleType {
-  collectionName: 'homes';
+export interface ApiHomepageHomepage extends Schema.SingleType {
+  collectionName: 'homepages';
   info: {
-    singularName: 'home';
-    pluralName: 'homes';
+    singularName: 'homepage';
+    pluralName: 'homepages';
     displayName: 'Homepage';
     description: '';
   };
@@ -898,17 +898,23 @@ export interface ApiHomeHome extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    slug: Attribute.String & Attribute.Required & Attribute.Unique;
-    title: Attribute.String & Attribute.Required;
-    Blocks: Attribute.DynamicZone<
-      ['block.list', 'block.hero', 'block.cta-dishes']
+    blocks: Attribute.DynamicZone<
+      ['block.hero', 'block.cta-dishes', 'list.list-chef']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+    createdBy: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
-    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+    updatedBy: Attribute.Relation<
+      'api::homepage.homepage',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -958,9 +964,7 @@ export interface ApiPagePage extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     slug: Attribute.String;
-    PageBlock: Attribute.DynamicZone<
-      ['block.list', 'block.hero', 'block.cta-dishes']
-    >;
+    PageBlock: Attribute.DynamicZone<['block.hero', 'block.cta-dishes']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1023,7 +1027,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::chef.chef': ApiChefChef;
       'api::dish.dish': ApiDishDish;
-      'api::home.home': ApiHomeHome;
+      'api::homepage.homepage': ApiHomepageHomepage;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::page.page': ApiPagePage;
       'api::website-info.website-info': ApiWebsiteInfoWebsiteInfo;

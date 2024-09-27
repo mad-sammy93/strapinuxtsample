@@ -1,19 +1,18 @@
 {
-  "collectionName": "components_block_lists",
+  "collectionName": "components_list_list_chefs",
   "info": {
-    "displayName": "CTA_chefs",
-    "icon": "bulletList",
+    "displayName": "ListChef",
     "description": ""
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
     "chefs": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::chef.chef"
-    },
-    "listName": {
-      "type": "string"
     }
   }
 }

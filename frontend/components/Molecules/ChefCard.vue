@@ -20,7 +20,7 @@ const dishInfo = ref({
 const getDishName =  (id: string) => {
   console.log(id)
 
-  const {result:data} =  useQuery(dishQuery, { id });
+  const {result:data} = useQuery(dishQuery, { id });
   watchEffect(() => {
     const dish = data?.value?.dish?.data?.attributes;
     if (dish) {
@@ -33,7 +33,6 @@ const getDishName =  (id: string) => {
       };
     }
   });
-
   return dishInfo;
 }
 onMounted(() => {
