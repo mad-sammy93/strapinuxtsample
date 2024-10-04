@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export const chefQuery = gql`
-  query {
+  query chefQuery {
     chef(id: 1) {
       data {
         attributes {
@@ -12,7 +12,7 @@ export const chefQuery = gql`
   }
 `
 export const chefsQuery = gql`
-  query {
+  query chefsQuery {
     chefs {
       data {
         attributes {
@@ -32,56 +32,44 @@ export const chefsQuery = gql`
   }
 `
 
-export const siteName = gql`
-  query {
-    websiteInfo {
+export const homepageContent = gql`
+  query homepageContent {
+    homepage {
       data {
         attributes {
-          Site_name
-          Site_description
-        }
-      }
-    }
-  }
-`
-
-export const homepageContent = gql`{
-  homepage {
-    data {
-      attributes {
-        blocks {
-          __typename
-          ... on ComponentBlockHero {
-            Description
-            buttonText
-            buttonLink
-            quoteSize
-            buttonSize
-            image {
-              data {
-                attributes {
-                  url
+          blocks {
+            __typename
+            ... on ComponentBlockHero {
+              Description
+              buttonText
+              buttonLink
+              quoteSize
+              buttonSize
+              image {
+                data {
+                  attributes {
+                    url
+                  }
                 }
               }
             }
-          }
-          ... on ComponentListListChef {
-            chefs {
-              data {
-                attributes {
-                  Name
-                  description
-                  
+            ... on ComponentListListChef {
+              chefs {
+                data {
+                  attributes {
+                    Name
+                    description
+                  }
                 }
               }
             }
-          }
-          ... on ComponentBlockCtaDishes {
-            dishes{
-              data{
-                attributes{
-                  Name
-                  description
+            ... on ComponentBlockCtaDishes {
+              dishes {
+                data {
+                  attributes {
+                    Name
+                    description
+                  }
                 }
               }
             }
@@ -90,11 +78,10 @@ export const homepageContent = gql`{
       }
     }
   }
-}
 `
 
 export const dishQuery = gql`
-  query ($id: ID!) {
+  query dishQuery($id: ID!) {
     dish(id: $id) {
       data {
         attributes {
@@ -122,7 +109,7 @@ export const dishQuery = gql`
 `
 
 export const navigationQuery = gql`
-  query {
+  query navigationQuery {
     navigation {
       data {
         attributes {

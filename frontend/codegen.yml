@@ -1,6 +1,6 @@
 overwrite: true
-schema: "http://strapi:1337/graphql"
-documents: "gql/**/*.tsx"
+schema: "http://strapi:4500/graphql"
+documents: "graphql/**/*.tsx"
 generates:
   types/index.ts:
     plugins:
