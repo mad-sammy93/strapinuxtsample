@@ -1,17 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface ListListChef extends Schema.Component {
-  collectionName: 'components_list_list_chefs';
-  info: {
-    displayName: 'ListChef';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    chefs: Attribute.Relation<'list.list-chef', 'oneToMany', 'api::chef.chef'>;
-  };
-}
-
 export interface NavNavItems extends Schema.Component {
   collectionName: 'components_nav_nav_items';
   info: {
@@ -25,6 +13,18 @@ export interface NavNavItems extends Schema.Component {
     path: Attribute.String & Attribute.Required;
     is_external: Attribute.Boolean & Attribute.DefaultTo<false>;
     page: Attribute.Relation<'nav.nav-items', 'oneToOne', 'api::page.page'>;
+  };
+}
+
+export interface ListListChef extends Schema.Component {
+  collectionName: 'components_list_list_chefs';
+  info: {
+    displayName: 'ListChef';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    chefs: Attribute.Relation<'list.list-chef', 'oneToMany', 'api::chef.chef'>;
   };
 }
 
@@ -88,8 +88,8 @@ export interface BlockCtaDishes extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'list.list-chef': ListListChef;
       'nav.nav-items': NavNavItems;
+      'list.list-chef': ListListChef;
       'block.hero': BlockHero;
       'block.cta-dishes': BlockCtaDishes;
     }
