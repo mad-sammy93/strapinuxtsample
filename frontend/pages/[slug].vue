@@ -25,8 +25,9 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { getPageBySlugQuery } from '~/graphql/queries';
+import type { GetPageBySlugQuery } from '@/types';
 
 const route = useRoute();
 const slug = route.params.slug;
-const { result, loading, error } = useQuery(getPageBySlugQuery, { slug });
+const { result, loading, error } = useQuery<GetPageBySlugQuery>(getPageBySlugQuery, { slug });
 </script>

@@ -52,7 +52,8 @@ export interface BlockHero extends Schema.Component {
         'size_5xl',
         'size_6xl'
       ]
-    >;
+    > &
+      Attribute.Required;
     buttonSize: Attribute.Enumeration<
       [
         'size_sm',
@@ -65,7 +66,8 @@ export interface BlockHero extends Schema.Component {
         'size_5xl',
         'size_6xl'
       ]
-    >;
+    > &
+      Attribute.Required;
   };
 }
 

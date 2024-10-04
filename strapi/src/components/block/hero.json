@@ -36,7 +36,8 @@
         "size_4xl",
         "size_5xl",
         "size_6xl"
-      ]
+      ],
+      "required": true
     },
     "buttonSize": {
       "type": "enumeration",
@@ -50,7 +51,8 @@
         "size_4xl",
         "size_5xl",
         "size_6xl"
-      ]
+      ],
+      "required": true
     }
   }
 }

@@ -13,5 +13,8 @@ https://bitbucket.org/jeschippers/strapinuxtbootstrap/
 ## Enter container
 ```docker  exec -it <container ID> sh```
 
-## run both contsiners
+## Run both containers
 ```docker compose up```
+
+## Generate types
+```docker compose run --rm frontend yarn generate-types```

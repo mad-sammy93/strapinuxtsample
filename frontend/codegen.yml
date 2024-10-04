@@ -1,4 +1,4 @@
-overwrite: true
+overwrite: true 
 schema: "http://strapi:4500/graphql"
 documents: "graphql/**/*.tsx"
 generates:

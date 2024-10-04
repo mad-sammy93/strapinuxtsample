@@ -9,18 +9,19 @@
 
 <script setup lang="ts">
 const { $getImageUrl } = useNuxtApp()
+import {Enum_Componentblockhero_Quotesize,Enum_Componentblockhero_Buttonsize } from '@/types'
 defineProps({
   image: String,
   quote: String,
   quoteSize: {
     default: 'lg', 
-    type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' |'6xl'>,
+    type: String as PropType<Enum_Componentblockhero_Quotesize> 
   },
   buttonLink : String,
   buttonText: String,
   buttonSize: {
     default: 'lg', 
-    type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' |'6xl'>,
+    type: String as PropType<Enum_Componentblockhero_Buttonsize>,
   }
 })
 </script>
