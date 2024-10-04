@@ -23,17 +23,17 @@ export default defineNuxtConfig({
       }
     }
   },
-  nitro: {
-    devProxy: {
-      '/api': 'http://127.0.0.1:4500'
-    }
-  },
+  // nitro: {
+  //   devProxy: {
+  //     '/api': 'http://127.0.0.1:4500'
+  //   }
+  // },
   runtimeConfig: {
     public: {
       // Overwritten with ENV variables (on local these are set in docker-compose)
       apiEndpoint: '/api',
-      // internalApiEndpoint: '',
-      // useS3: false
+      internalApiEndpoint: '',
+      useS3: false
     }
   }
 })

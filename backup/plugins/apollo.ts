@@ -3,7 +3,7 @@ import { onError } from '@apollo/client/link/error';
 import { setContext } from '@apollo/client/link/context';
 
 export default defineNuxtPlugin((nuxtApp) => {
-
+  
   // Get Nuxt runtimeConfig and apollo instance
   const runtimeConfig = useRuntimeConfig();
   const { $apollo } = useNuxtApp();
@@ -16,7 +16,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     };
   });
 
-  const uri = `${process.server ? runtimeConfig.public.internalApiEndpoint : runtimeConfig.public.apiEndpoint}/graphql`
+  const uri = `${ process.server ? runtimeConfig.public.internalApiEndpoint : runtimeConfig.public.apiEndpoint }/graphql`
   const httpLink = authLink.concat(
     createHttpLink({ uri })
   );

@@ -9,8 +9,8 @@ services:
     ports:
       - "4400:4400"
     volumes:
-      - ./frontend:/app    
-    working_dir: /app
+      - ./frontend:/app/frontend   
+    working_dir: /app/frontend  
     environment:
       - NUXT_PUBLIC_API_ENDPOINT=http://localhost:4500
       - NUXT_PUBLIC_INTERNAL_API_ENDPOINT=http://localhost:4500
@@ -18,7 +18,7 @@ services:
       - strapi
 
   strapi:
-    image: strapi/strapi
+    image: node:18-alpine
     command: yarn develop
     build:
       context: ./strapi
@@ -26,10 +26,10 @@ services:
     ports:
       - "4500:4500"
     volumes:
-      - ./strapi:/app
+      - ./strapi:/app/strapi
     # depends_on:
     #   - db
-    working_dir: /app
+    working_dir: /app/strapi
     environment:
       NODE_ENV: development
 
