@@ -1,0 +1,28 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "generate-types": "graphql-codegen --config codegen.yml"
+  },
+  "dependencies": {
+    "@graphql-codegen/cli": "^4.0.1",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@nuxt/image": "^1.7.0",
+    "@nuxtjs/apollo": "^5.0.0-alpha.14",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "graphql-tag": "^2.12.6",
+    "nuxt": "^3.13.0",
+    "nuxt-swiper": "^1.2.2",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.79.3"
+  }
+}
