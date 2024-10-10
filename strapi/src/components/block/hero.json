@@ -18,41 +18,15 @@
     "Description": {
       "type": "text"
     },
-    "buttonText": {
-      "type": "string"
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atom.button"
     },
-    "buttonLink": {
-      "type": "string"
-    },
-    "quoteSize": {
-      "type": "enumeration",
-      "enum": [
-        "size_sm",
-        "size_md",
-        "size_lg",
-        "size_xl",
-        "size_2xl",
-        "size_3xl",
-        "size_4xl",
-        "size_5xl",
-        "size_6xl"
-      ],
-      "required": true
-    },
-    "buttonSize": {
-      "type": "enumeration",
-      "enum": [
-        "size_sm",
-        "size_md",
-        "size_lg",
-        "size_xl",
-        "size_2xl",
-        "size_3xl",
-        "size_4xl",
-        "size_5xl",
-        "size_6xl"
-      ],
-      "required": true
+    "quote": {
+      "type": "component",
+      "repeatable": false,
+      "component": "atom.quote"
     }
   }
 }

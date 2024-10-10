@@ -16,6 +16,44 @@ export interface NavNavItems extends Schema.Component {
   };
 }
 
+export interface MoleculesDishCard extends Schema.Component {
+  collectionName: 'components_molecules_dish_cards';
+  info: {
+    displayName: 'DishCard';
+    icon: 'restaurant';
+  };
+  attributes: {
+    DishId: Attribute.String;
+    size: Attribute.Enumeration<['full', 'half']>;
+  };
+}
+
+export interface MoleculesChefCard extends Schema.Component {
+  collectionName: 'components_molecules_chef_cards';
+  info: {
+    displayName: 'ChefCard';
+    icon: 'emotionHappy';
+  };
+  attributes: {
+    chefId: Attribute.String;
+    size: Attribute.Enumeration<['full', 'half']>;
+  };
+}
+
+export interface MoleculesCard extends Schema.Component {
+  collectionName: 'components_molecules_cards';
+  info: {
+    displayName: 'Card';
+    icon: 'command';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    link: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface ListListChef extends Schema.Component {
   collectionName: 'components_list_list_chefs';
   info: {
@@ -25,6 +63,17 @@ export interface ListListChef extends Schema.Component {
   attributes: {
     title: Attribute.String;
     chefs: Attribute.Relation<'list.list-chef', 'oneToMany', 'api::chef.chef'>;
+  };
+}
+
+export interface BlockListChef extends Schema.Component {
+  collectionName: 'components_block_list_chefs';
+  info: {
+    displayName: 'ListChef';
+    icon: 'puzzle';
+  };
+  attributes: {
+    chef: Attribute.Component<'molecules.card', true>;
   };
 }
 
@@ -38,36 +87,8 @@ export interface BlockHero extends Schema.Component {
   attributes: {
     image: Attribute.Media<'images'>;
     Description: Attribute.Text;
-    buttonText: Attribute.String;
-    buttonLink: Attribute.String;
-    quoteSize: Attribute.Enumeration<
-      [
-        'size_sm',
-        'size_md',
-        'size_lg',
-        'size_xl',
-        'size_2xl',
-        'size_3xl',
-        'size_4xl',
-        'size_5xl',
-        'size_6xl'
-      ]
-    > &
-      Attribute.Required;
-    buttonSize: Attribute.Enumeration<
-      [
-        'size_sm',
-        'size_md',
-        'size_lg',
-        'size_xl',
-        'size_2xl',
-        'size_3xl',
-        'size_4xl',
-        'size_5xl',
-        'size_6xl'
-      ]
-    > &
-      Attribute.Required;
+    button: Attribute.Component<'atom.button'>;
+    quote: Attribute.Component<'atom.quote'>;
   };
 }
 
@@ -87,13 +108,69 @@ export interface BlockCtaDishes extends Schema.Component {
   };
 }
 
+export interface AtomQuote extends Schema.Component {
+  collectionName: 'components_atom_quotes';
+  info: {
+    displayName: 'Quote';
+    icon: 'bulletList';
+  };
+  attributes: {
+    title: Attribute.String;
+    size: Attribute.Enumeration<
+      [
+        'size_2xl',
+        'size_3xl',
+        'size_4xl',
+        'size_5xl',
+        'size_6xl',
+        'size_lg',
+        'size_md',
+        'size_sm',
+        'size_xl'
+      ]
+    >;
+  };
+}
+
+export interface AtomButton extends Schema.Component {
+  collectionName: 'components_atom_buttons';
+  info: {
+    displayName: 'Button';
+    icon: 'feather';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    link: Attribute.String;
+    size: Attribute.Enumeration<
+      [
+        'size_2xl',
+        'size_3xl',
+        'size_4xl',
+        'size_5xl',
+        'size_6xl',
+        'size_lg',
+        'size_md',
+        'size_sm',
+        'size_xl'
+      ]
+    >;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'nav.nav-items': NavNavItems;
+      'molecules.dish-card': MoleculesDishCard;
+      'molecules.chef-card': MoleculesChefCard;
+      'molecules.card': MoleculesCard;
       'list.list-chef': ListListChef;
+      'block.list-chef': BlockListChef;
       'block.hero': BlockHero;
       'block.cta-dishes': BlockCtaDishes;
+      'atom.quote': AtomQuote;
+      'atom.button': AtomButton;
     }
   }
 }

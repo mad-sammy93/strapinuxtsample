@@ -5,12 +5,13 @@
 </template>
 
 <script setup lang="ts">
+import type {Enum_Componentatombutton_Size} from '@/types'
 defineProps({
   text: String,
   link: String,
   size: {
     default: '2xl',
-    type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' |'6xl'>
+    type: String as PropType<Enum_Componentatombutton_Size>
   }
 })
 </script>

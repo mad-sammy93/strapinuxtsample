@@ -30,13 +30,16 @@
     
       <section  class="grid gap-6 mt-10 grid-cols-3">
         <pre>{{ dishes }}</pre>
-        <MoleculesDishCard class="first:col-span-full" :id="dish.id" :size="(index==0)?'full':'small'" v-for="(dish, index) in dishes" :key="index" />
+        <MoleculesDishCard class="first:col-span-full" :id="dish.id" :size="cardSize" v-for="(dish, index) in dishes" :key="index" />
       </section>
     </div>
     <!-- </div> -->
   </section>
 </template>
 <script setup lang="ts">
+import type { PropType } from 'vue';
+import type {Enum_Componentmoleculesdishcard_Size} from '~/types'
+
 type ListItem = {
   id: string
   attributes: {
@@ -49,6 +52,7 @@ defineProps({
   title: String,
   dishes: {
     type: Array as PropType<ListItem[]>,
-  }
+  },
+  cardSize: String as PropType<Enum_Componentmoleculesdishcard_Size>
 })
 </script>

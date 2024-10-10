@@ -18,20 +18,19 @@ useHead({
       <div v-for="(block, index) in result?.homepage?.data?.attributes?.blocks " :key="index">
 
         <!-- ComponentBlockHero -->
-        <template v-if="block?.__typename === 'ComponentBlockHero'">
+        <!-- <template v-if="block?.__typename === 'ComponentBlockHero'">
           <BlockHero :image="block?.image?.data?.attributes?.url" :quote="block?.Description" :quoteSize="useSizeFormat(block?.quoteSize)" :buttonLink="block.buttonLink" :buttonText="block.buttonText" :buttonSize="useSizeFormat(block.buttonSize)"/>
-        </template>
+        </template> -->
 
         <!-- ComponentBlockListChef -->
-        <template v-if="block?.__typename === 'ComponentListListChef'">
-          <!-- <pre>{{ block }}</pre> -->
+        <!-- <template v-if="block?.__typename === 'ComponentListListChef'">
           <BlockListChef :chefs="block.chefs.data" :listName="block.listName"/>
-        </template>
+        </template> -->
        
         <!-- ComponentBlockCtaDishes -->
-        <template v-if="block?.__typename === 'ComponentBlockCtaDishes'">
-          <!-- <BlockCtaDishes :dishes="block.dishes.data" :title="block.title" /> -->
-        </template>
+        <!-- <template v-if="block?.__typename === 'ComponentBlockCtaDishes'">
+          <BlockCtaDishes :dishes="block.dishes.data" :title="block.title"  :cardSize="(index==0)?'full':'small'"/>
+        </template> -->
       </div>
     </div>
     <SectionContact />

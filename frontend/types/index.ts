@@ -166,6 +166,21 @@ export type ChefRelationResponseCollection = {
   data: Array<ChefEntity>;
 };
 
+export type ComponentAtomButton = {
+  __typename?: 'ComponentAtomButton';
+  id: Scalars['ID']['output'];
+  link?: Maybe<Scalars['String']['output']>;
+  size?: Maybe<Enum_Componentatombutton_Size>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentAtomQuote = {
+  __typename?: 'ComponentAtomQuote';
+  id: Scalars['ID']['output'];
+  size?: Maybe<Enum_Componentatomquote_Size>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
 export type ComponentBlockCtaDishes = {
   __typename?: 'ComponentBlockCtaDishes';
   dishes?: Maybe<DishRelationResponseCollection>;
@@ -184,12 +199,10 @@ export type ComponentBlockCtaDishesDishesArgs = {
 export type ComponentBlockHero = {
   __typename?: 'ComponentBlockHero';
   Description?: Maybe<Scalars['String']['output']>;
-  buttonLink?: Maybe<Scalars['String']['output']>;
-  buttonSize: Enum_Componentblockhero_Buttonsize;
-  buttonText?: Maybe<Scalars['String']['output']>;
+  button?: Maybe<ComponentAtomButton>;
   id: Scalars['ID']['output'];
   image?: Maybe<UploadFileEntityResponse>;
-  quoteSize: Enum_Componentblockhero_Quotesize;
+  quote?: Maybe<ComponentAtomQuote>;
 };
 
 export type ComponentListListChef = {
@@ -205,6 +218,29 @@ export type ComponentListListChefChefsArgs = {
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentMoleculesCard = {
+  __typename?: 'ComponentMoleculesCard';
+  description?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  image?: Maybe<UploadFileEntityResponse>;
+  link?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentMoleculesChefCard = {
+  __typename?: 'ComponentMoleculesChefCard';
+  chefId?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  size?: Maybe<Enum_Componentmoleculeschefcard_Size>;
+};
+
+export type ComponentMoleculesDishCard = {
+  __typename?: 'ComponentMoleculesDishCard';
+  DishId?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  size?: Maybe<Enum_Componentmoleculesdishcard_Size>;
 };
 
 export type ComponentNavNavItems = {
@@ -327,7 +363,7 @@ export type DishRelationResponseCollection = {
   data: Array<DishEntity>;
 };
 
-export enum Enum_Componentblockhero_Buttonsize {
+export enum Enum_Componentatombutton_Size {
   Size_2xl = 'size_2xl',
   Size_3xl = 'size_3xl',
   Size_4xl = 'size_4xl',
@@ -339,7 +375,7 @@ export enum Enum_Componentblockhero_Buttonsize {
   SizeXl = 'size_xl'
 }
 
-export enum Enum_Componentblockhero_Quotesize {
+export enum Enum_Componentatomquote_Size {
   Size_2xl = 'size_2xl',
   Size_3xl = 'size_3xl',
   Size_4xl = 'size_4xl',
@@ -349,6 +385,16 @@ export enum Enum_Componentblockhero_Quotesize {
   SizeMd = 'size_md',
   SizeSm = 'size_sm',
   SizeXl = 'size_xl'
+}
+
+export enum Enum_Componentmoleculeschefcard_Size {
+  Full = 'full',
+  Half = 'half'
+}
+
+export enum Enum_Componentmoleculesdishcard_Size {
+  Full = 'full',
+  Half = 'half'
 }
 
 export type Error = {
@@ -388,7 +434,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = Category | Chef | ComponentBlockCtaDishes | ComponentBlockHero | ComponentListListChef | ComponentNavNavItems | Dish | Homepage | I18NLocale | Navigation | Page | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | WebsiteInfo;
+export type GenericMorph = Category | Chef | ComponentAtomButton | ComponentAtomQuote | ComponentBlockCtaDishes | ComponentBlockHero | ComponentListListChef | ComponentMoleculesCard | ComponentMoleculesChefCard | ComponentMoleculesDishCard | ComponentNavNavItems | Dish | Homepage | I18NLocale | Navigation | Page | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | WebsiteInfo;
 
 export type Homepage = {
   __typename?: 'Homepage';
@@ -1481,7 +1527,7 @@ export type ChefsQueryQuery = { __typename?: 'Query', chefs?: { __typename?: 'Ch
 export type HomepageContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomepageContentQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', blocks?: Array<{ __typename: 'ComponentBlockCtaDishes', dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | { __typename: 'ComponentBlockHero', Description?: string | null, buttonText?: string | null, buttonLink?: string | null, quoteSize: Enum_Componentblockhero_Quotesize, buttonSize: Enum_Componentblockhero_Buttonsize, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename: 'ComponentListListChef', chefs?: { __typename?: 'ChefRelationResponseCollection', data: Array<{ __typename?: 'ChefEntity', attributes?: { __typename?: 'Chef', Name: string, description?: string | null } | null }> } | null } | { __typename: 'Error' } | null> | null } | null } | null } | null };
+export type HomepageContentQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', blocks?: Array<{ __typename: 'ComponentBlockCtaDishes', dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | { __typename: 'ComponentBlockHero', Description?: string | null, button?: { __typename?: 'ComponentAtomButton', title?: string | null, link?: string | null, size?: Enum_Componentatombutton_Size | null } | null, quote?: { __typename?: 'ComponentAtomQuote', id: string, title?: string | null, size?: Enum_Componentatomquote_Size | null } | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename: 'ComponentListListChef', chefs?: { __typename?: 'ChefRelationResponseCollection', data: Array<{ __typename?: 'ChefEntity', attributes?: { __typename?: 'Chef', Name: string, description?: string | null } | null }> } | null } | { __typename: 'Error' } | null> | null } | null } | null } | null };
 
 export type DishQueryQueryVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -1500,4 +1546,4 @@ export type GetPageBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GetPageBySlugQuery = { __typename?: 'Query', pages?: { __typename?: 'PageEntityResponseCollection', data: Array<{ __typename?: 'PageEntity', attributes?: { __typename?: 'Page', name?: string | null, slug?: string | null, PageBlock?: Array<{ __typename: 'ComponentBlockCtaDishes', title?: string | null, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | { __typename: 'ComponentBlockHero', Description?: string | null, buttonText?: string | null, buttonLink?: string | null, buttonSize: Enum_Componentblockhero_Buttonsize, quoteSize: Enum_Componentblockhero_Quotesize, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } | null } | { __typename: 'Error' } | null> | null } | null }> } | null };
+export type GetPageBySlugQuery = { __typename?: 'Query', pages?: { __typename?: 'PageEntityResponseCollection', data: Array<{ __typename?: 'PageEntity', attributes?: { __typename?: 'Page', name?: string | null, slug?: string | null, PageBlock?: Array<{ __typename: 'ComponentBlockCtaDishes', title?: string | null, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | { __typename: 'ComponentBlockHero', Description?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } | null, button?: { __typename?: 'ComponentAtomButton', title?: string | null, link?: string | null, size?: Enum_Componentatombutton_Size | null } | null, quote?: { __typename?: 'ComponentAtomQuote', id: string, title?: string | null, size?: Enum_Componentatomquote_Size | null } | null } | { __typename: 'Error' } | null> | null } | null }> } | null };

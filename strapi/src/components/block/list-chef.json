@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_block_list_chefs",
+  "info": {
+    "displayName": "ListChef",
+    "icon": "puzzle"
+  },
+  "options": {},
+  "attributes": {
+    "chef": {
+      "type": "component",
+      "repeatable": true,
+      "component": "molecules.card"
+    }
+  }
+}

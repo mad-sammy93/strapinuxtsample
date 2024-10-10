@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { dishQuery } from "~/graphql/queries";
+import type {Enum_Componentmoleculesdishcard_Size} from '~/types'
 const { $getImageUrl } = useNuxtApp()
 
 const prop = defineProps({
   id: String,
   size: {
     type: 
-    String as PropType<'full'| 'small'>,
+    String as PropType<Enum_Componentmoleculesdishcard_Size>,
   }
 })
 

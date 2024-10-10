@@ -5,10 +5,11 @@
 </template>
 
 <script setup lang="ts">
+import type {Enum_Componentatomquote_Size} from '@/types'
 defineProps({
 text: String,
 size: {
-  type: String as PropType<'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' |'6xl'>
+  type: String as PropType<Enum_Componentatomquote_Size>
 }
 })
 </script>

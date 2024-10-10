@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_molecules_dish_cards",
+  "info": {
+    "displayName": "DishCard",
+    "icon": "restaurant"
+  },
+  "options": {},
+  "attributes": {
+    "DishId": {
+      "type": "string"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "full",
+        "half"
+      ]
+    }
+  }
+}

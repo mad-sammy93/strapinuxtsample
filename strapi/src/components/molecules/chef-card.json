@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_molecules_chef_cards",
+  "info": {
+    "displayName": "ChefCard",
+    "icon": "emotionHappy"
+  },
+  "options": {},
+  "attributes": {
+    "chefId": {
+      "type": "string"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "full",
+        "half"
+      ]
+    }
+  }
+}

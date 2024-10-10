@@ -41,10 +41,16 @@ export const homepageContent = gql`
             __typename
             ... on ComponentBlockHero {
               Description
-              buttonText
-              buttonLink
-              quoteSize
-              buttonSize
+              button {
+                title
+                link
+                size
+              }
+              quote {
+                id
+                title
+                size
+              }
               image {
                 data {
                   attributes {
@@ -153,10 +159,16 @@ export const getPageBySlugQuery = gql`
                 }
               }
               Description
-              buttonText
-              buttonLink
-              buttonSize
-              quoteSize
+              button {
+                title
+                link
+                size
+              }
+              quote {
+                id
+                title
+                size
+              }
             }
             ... on ComponentBlockCtaDishes {
               title

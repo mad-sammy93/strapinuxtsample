@@ -31,9 +31,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       // Overwritten with ENV variables (on local these are set in docker-compose)
-      apiEndpoint: '/api',
-      internalApiEndpoint: '',
-      useS3: false
+      // apiEndpoint: '/api',
+      // internalApiEndpoint: '',
+      // useS3: false
     }
   }
 })

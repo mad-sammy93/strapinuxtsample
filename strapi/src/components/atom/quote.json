@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_atom_quotes",
+  "info": {
+    "displayName": "Quote",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "size_2xl",
+        "size_3xl",
+        "size_4xl",
+        "size_5xl",
+        "size_6xl",
+        "size_lg",
+        "size_md",
+        "size_sm",
+        "size_xl"
+      ]
+    }
+  }
+}
