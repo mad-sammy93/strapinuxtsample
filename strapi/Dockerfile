@@ -1,7 +1,7 @@
 # Use an official Node.js runtime as a parent image
 FROM node:18-alpine
 
-WORKDIR /
+WORKDIR /app/strapi
 COPY package.json ./
 COPY yarn.lock ./
 

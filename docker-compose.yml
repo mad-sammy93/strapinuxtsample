@@ -14,8 +14,8 @@ services:
     environment:
       - NUXT_PUBLIC_API_ENDPOINT=http://localhost:4500
       - NUXT_PUBLIC_INTERNAL_API_ENDPOINT=http://localhost:4500
-    depends_on:
-      - strapi
+    # depends_on:
+    #   - strapi
 
   strapi:
     image: node:18-alpine
@@ -31,7 +31,7 @@ services:
     #   - db
     working_dir: /app/strapi
     environment:
-      NODE_ENV: development
+      - NODE_ENV=development
 
 #   db:
 #     image: mysql:8.0.36

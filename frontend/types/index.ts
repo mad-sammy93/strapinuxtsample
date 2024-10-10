@@ -205,6 +205,19 @@ export type ComponentBlockHero = {
   quote?: Maybe<ComponentAtomQuote>;
 };
 
+export type ComponentBlockListChef = {
+  __typename?: 'ComponentBlockListChef';
+  chef?: Maybe<Array<Maybe<ComponentMoleculesCard>>>;
+  id: Scalars['ID']['output'];
+};
+
+
+export type ComponentBlockListChefChefArgs = {
+  filters?: InputMaybe<ComponentMoleculesCardFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type ComponentListListChef = {
   __typename?: 'ComponentListListChef';
   chefs?: Maybe<ChefRelationResponseCollection>;
@@ -227,6 +240,15 @@ export type ComponentMoleculesCard = {
   image?: Maybe<UploadFileEntityResponse>;
   link?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentMoleculesCardFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentMoleculesCardFiltersInput>>>;
+  description?: InputMaybe<StringFilterInput>;
+  link?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentMoleculesCardFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentMoleculesCardFiltersInput>>>;
+  title?: InputMaybe<StringFilterInput>;
 };
 
 export type ComponentMoleculesChefCard = {
@@ -434,7 +456,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = Category | Chef | ComponentAtomButton | ComponentAtomQuote | ComponentBlockCtaDishes | ComponentBlockHero | ComponentListListChef | ComponentMoleculesCard | ComponentMoleculesChefCard | ComponentMoleculesDishCard | ComponentNavNavItems | Dish | Homepage | I18NLocale | Navigation | Page | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | WebsiteInfo;
+export type GenericMorph = Category | Chef | ComponentAtomButton | ComponentAtomQuote | ComponentBlockCtaDishes | ComponentBlockHero | ComponentBlockListChef | ComponentListListChef | ComponentMoleculesCard | ComponentMoleculesChefCard | ComponentMoleculesDishCard | ComponentNavNavItems | Dish | Homepage | I18NLocale | Navigation | Page | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | WebsiteInfo;
 
 export type Homepage = {
   __typename?: 'Homepage';
