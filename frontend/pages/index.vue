@@ -1,52 +1,41 @@
 <script lang="ts" setup>
-// import {  useQuery } from '@vue/apollo-composable'
+import { homepageContent } from "@/graphql/getHomepage";
+import type { HomepageContentQuery } from "@/types";
+import { useSizeFormat } from '@/composables/useSizeFormat';
 
+const { result, error:err , loading} = useQuery<HomepageContentQuery>(homepageContent)
+console.log('[homepage]',result.value,err.value);
 
-import { homepageContent } from "~/graphql/queries";
-import type { HomepageContentQuery } from "~/types";
-// const { client } = useApolloClient('default') // Ensure 'default' client is used
-
-const { result: homepage, error  } = useQuery<HomepageContentQuery>(homepageContent)
-  // const { result, loading, error } = useQuery(homepageContent, null,{ client })
-// const result = ref()
-// onMounted(() => {
-//   const query = useQuery(homepageContent)
-  
-//   result.value = query.result
-//   console.log('[query]',query);
-//   // result = query.result
-//   // loading = query.loading
-//   // error = query.error
-// })
-
-
-// definePageMeta({
-//   layout: 'homepage'
-// })
-// useHead({
-//   title:'CURRY & Co. | Home', // TODO get from strapi
-// })
+definePageMeta({
+  layout: 'homepage'
+})
+useHead({
+  title:'CURRY & Co. | Home', // TODO get from strapi
+})
 </script>
 <template>
-  homepage
-  <pre>{{ homepage || error}}</pre>
-    <!-- <div v-if="result?.homepage?.data?.attributes?.blocks ">
-      <div v-for="(block, index) in result?.homepage?.data?.attributes?.blocks " :key="index"> -->
+  <!-- homepage
+  <pre v-if="loading">{{ loading }}</pre>
+  <pre v-else-if="err">{{  err}}</pre>
+  <pre v-else>{{ homepage }}</pre> -->
+    <div v-if="result?.homepage?.data?.attributes?.blocks ">
+      <div v-for="(block, index) in result?.homepage?.data?.attributes?.blocks " :key="index">
 
         <!-- ComponentBlockHero -->
-        <!-- <template v-if="block?.__typename === 'ComponentBlockHero'">
-          <BlockHero :image="block?.image?.data?.attributes?.url" :quote="block.Description" :quoteSize="useSizeFormat(block?.quoteSize)" :buttonLink="block.buttonLink" :buttonText="block.buttonText" :buttonSize="useSizeFormat(block.buttonSize)"/>
-        </template> -->
+        <template v-if="block?.__typename === 'ComponentBlockHero'">
+          <pre v-if="block">{{ block }}</pre>
+          <!-- <BlockHero :image="block?.image?.data?.attributes?.url" :quote="block.Description" :quoteSize="useSizeFormat(block?.quoteSize)" :buttonLink="block.buttonLink" :buttonText="block.buttonText" :buttonSize="useSizeFormat(block.buttonSize)"/> -->
+        </template>
 
         <!-- ComponentBlockListChef -->
-        <!-- <template v-if="block?.__typename === 'ComponentListListChef'">
-          <BlockListChef :chefs="block.chefs.data" :listName="block.listName"/>
-        </template> -->
+        <template v-if="block?.__typename === 'ComponentListListChef'">
+          <!-- <BlockListChef :chefs="block.chefs.data" :listName="block.listName"/> -->
+        </template>
 
         <!-- ComponentBlockCtaDishes -->
-        <!-- <template v-if="block?.__typename === 'ComponentBlockCtaDishes'">
-          <BlockCtaDishes :dishes="block.dishes.data" :title="block.title" />
-        </template> -->
-      <!-- </div>
-    </div> -->
+        <template v-if="block?.__typename === 'ComponentBlockCtaDishes'">
+          <!-- <BlockCtaDishes :dishes="block.dishes.data" :title="block.title" /> -->
+        </template>
+      </div>
+    </div>
 </template>

@@ -4,9 +4,6 @@ export const useUtilities = () => {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
-  const useSizeFormat = (size: string) => {
-    return size.replace('size_', '');
-  }
 
-  return { toTitleCase, useSizeFormat };
+  return { toTitleCase };
 };
