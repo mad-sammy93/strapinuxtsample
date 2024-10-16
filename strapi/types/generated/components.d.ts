@@ -16,18 +16,6 @@ export interface NavNavItems extends Schema.Component {
   };
 }
 
-export interface ListListChef extends Schema.Component {
-  collectionName: 'components_list_list_chefs';
-  info: {
-    displayName: 'ListChef';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    chefs: Attribute.Relation<'list.list-chef', 'oneToMany', 'api::chef.chef'>;
-  };
-}
-
 export interface MoleculesDishCard extends Schema.Component {
   collectionName: 'components_molecules_dish_cards';
   info: {
@@ -63,6 +51,18 @@ export interface MoleculesCard extends Schema.Component {
     description: Attribute.Text;
     link: Attribute.String;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface ListListChef extends Schema.Component {
+  collectionName: 'components_list_list_chefs';
+  info: {
+    displayName: 'ListChef';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    chefs: Attribute.Relation<'list.list-chef', 'oneToMany', 'api::chef.chef'>;
   };
 }
 
@@ -162,10 +162,10 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'nav.nav-items': NavNavItems;
-      'list.list-chef': ListListChef;
       'molecules.dish-card': MoleculesDishCard;
       'molecules.chef-card': MoleculesChefCard;
       'molecules.card': MoleculesCard;
+      'list.list-chef': ListListChef;
       'block.list-chef': BlockListChef;
       'block.hero': BlockHero;
       'block.cta-dishes': BlockCtaDishes;

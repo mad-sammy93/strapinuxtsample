@@ -110,7 +110,7 @@ export type Chef = {
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   dishes?: Maybe<DishRelationResponseCollection>;
-  image?: Maybe<UploadFileEntityResponse>;
+  image: UploadFileEntityResponse;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
@@ -1541,7 +1541,7 @@ export type GetChefDetailsQueryVariables = Exact<{
 }>;
 
 
-export type GetChefDetailsQuery = { __typename?: 'Query', chef?: { __typename: 'ChefEntityResponse', data?: { __typename: 'ChefEntity', attributes?: { __typename?: 'Chef', Name: string, description?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | null } | null } | null };
+export type GetChefDetailsQuery = { __typename?: 'Query', chef?: { __typename: 'ChefEntityResponse', data?: { __typename: 'ChefEntity', attributes?: { __typename?: 'Chef', Name: string, description?: string | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | null } | null } | null };
 
 export type HomepageContentQueryVariables = Exact<{ [key: string]: never; }>;
 
