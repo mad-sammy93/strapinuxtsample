@@ -1,50 +1,31 @@
 services:
-  
   frontend:
-    image: node:18-alpine
-    command: yarn dev
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - "4400:4400"
+      context: .
+      target: base-frontend
+    command: yarn dev
     volumes:
-      - ./frontend:/app/frontend   
-    working_dir: /app/frontend  
+      - ./:/app
+    working_dir: /app/frontend
     environment:
-      - NUXT_PUBLIC_API_ENDPOINT=http://localhost:4500
-      - NUXT_PUBLIC_INTERNAL_API_ENDPOINT=http://localhost:4500
-    # depends_on:
-    #   - strapi
+      - NUXT_PUBLIC_API_ENDPOINT=http://0.0.0:4500
+      - NUXT_PUBLIC_INTERNAL_API_ENDPOINT=http://strapi:4500
+      # - NUXT_PUBLIC_API_ENDPOINT=https://api.smartshore.com
+      # - NUXT_PUBLIC_INTERNAL_API_ENDPOINT=https://api.smartshore.com
+      # - NUXT_PUBLIC_BASE_URL=https://smartshore.com
+    depends_on:
+      - strapi
+    ports:
+      - 4400:4400
+      - 24678:24678
 
   strapi:
-    image: node:18-alpine
-    command: yarn develop
     build:
-      context: ./strapi
-      dockerfile: Dockerfile
+      context: .
+      target: base-strapi
+    command: yarn develop
     ports:
-      - "4500:4500"
+      - 4500:4500
     volumes:
-      - ./strapi:/app/strapi
-    # depends_on:
-    #   - db
+      - ./:/app
     working_dir: /app/strapi
-    environment:
-      - NODE_ENV=development
-
-#   db:
-#     image: mysql:8.0.36
-#     # mysql 8:0.36 specified because native_password isn't supported in more recent versions.
-#     restart: always
-#     command: --default-authentication-plugin=mysql_native_password
-#     environment:
-#       MYSQL_DATABASE: strapi
-#       MYSQL_ROOT_PASSWORD: 123
-#     volumes:
-#       - db-data:/var/lib/mysql
-#     ports:
-#       - 3396:3306
-
-# volumes:
-#   db-data:

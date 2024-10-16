@@ -5,8 +5,8 @@ FROM node:18-alpine
 WORKDIR /app/frontend
 
 # Copy package.json and package-lock.json
-COPY package.json ./
-COPY yarn.lock ./
+COPY package.json ./frontend/
+COPY yarn.lock ./frontend/
 
 # Install dependencies
 RUN yarn install

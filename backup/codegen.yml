@@ -1,8 +1,0 @@
-overwrite: true
-schema: "http://strapi:1337/graphql"
-documents: "gql/**/*.tsx"
-generates:
-  types/index.ts:
-    plugins:
-    - typescript
-    - typescript-operations

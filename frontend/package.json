@@ -15,15 +15,12 @@
     "@graphql-codegen/typescript": "^4.0.1",
     "@graphql-codegen/typescript-operations": "^4.0.1",
     "@nuxt/image": "^1.7.0",
-    "@nuxt/types": "^2.18.1",
-    "@nuxtjs/apollo": "^5.0.0-alpha.14",
+    "@nuxtjs/apollo": "^5.0.0-alpha.6",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "graphql-tag": "^2.12.6",
     "nuxt": "^3.13.0",
     "nuxt-swiper": "^1.2.2",
-    "vue": "latest"
+    "vue": "latest",
+    "vue-router": "latest"
   },
-  "devDependencies": {
-    "sass-embedded": "^1.79.3"
-  }
+  "packageManager": "yarn@4.4.1"
 }

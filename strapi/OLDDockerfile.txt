@@ -2,8 +2,8 @@
 FROM node:18-alpine
 
 WORKDIR /app/strapi
-COPY package.json ./
-COPY yarn.lock ./
+COPY package.json ./strapi/
+COPY yarn.lock ./strapi/
 
 # Install dependencies for 'sharp' and build tools
 RUN apk add --no-cache vips-dev fftw-dev build-base gcc autoconf automake zlib-dev libpng-dev nasm bash 

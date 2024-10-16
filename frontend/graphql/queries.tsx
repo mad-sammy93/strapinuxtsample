@@ -1,4 +1,5 @@
-import gql from 'graphql-tag'
+import { gql } from 'graphql-tag'
+// import { gql } from '@apollo/client/core'
 
 export const chefQuery = gql`
   query chefQuery {
