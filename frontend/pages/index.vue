@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { homepageContent } from "@/graphql/getHomepage";
-import type { HomepageContentQuery } from "@/types";
-import { useSizeFormat } from '@/composables/useSizeFormat';
+import type { HomepageContentQuery,ComponentBlockHero } from "@/types";
 
 const { result, error:err , loading} = useQuery<HomepageContentQuery>(homepageContent)
 console.log('[homepage]',result.value,err.value);
@@ -18,24 +17,23 @@ useHead({
   <pre v-if="loading">{{ loading }}</pre>
   <pre v-else-if="err">{{  err}}</pre>
   <pre v-else>{{ homepage }}</pre> -->
-    <div v-if="result?.homepage?.data?.attributes?.blocks ">
-      <div v-for="(block, index) in result?.homepage?.data?.attributes?.blocks " :key="index">
+    <div v-if="result?.homepage?.data?.attributes?.blocks">
+      <div v-for="(block, index) in result?.homepage?.data?.attributes?.blocks" :key="index">
 
         <!-- ComponentBlockHero -->
-        <template v-if="block?.__typename === 'ComponentBlockHero'">
-          <pre v-if="block">{{ block }}</pre>
-          <!-- <BlockHero :image="block?.image?.data?.attributes?.url" :quote="block.Description" :quoteSize="useSizeFormat(block?.quoteSize)" :buttonLink="block.buttonLink" :buttonText="block.buttonText" :buttonSize="useSizeFormat(block.buttonSize)"/> -->
-        </template>
+        <!-- <template v-if="block?.__typename === 'ComponentBlockHero'">
+          <BlockHero :data="block"  />
+        </template> -->
 
         <!-- ComponentBlockListChef -->
         <template v-if="block?.__typename === 'ComponentListListChef'">
-          <!-- <BlockListChef :chefs="block.chefs.data" :listName="block.listName"/> -->
+          <BlockListChef :data="block"/>
         </template>
 
         <!-- ComponentBlockCtaDishes -->
-        <template v-if="block?.__typename === 'ComponentBlockCtaDishes'">
-          <!-- <BlockCtaDishes :dishes="block.dishes.data" :title="block.title" /> -->
-        </template>
+        <!-- <template v-if="block?.__typename === 'ComponentBlockCtaDishes'">
+          <BlockCtaDishes :dishes="block.dishes.data" :title="block.title" />
+        </template> -->
       </div>
     </div>
 </template>

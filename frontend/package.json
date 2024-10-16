@@ -22,5 +22,8 @@
     "vue": "latest",
     "vue-router": "latest"
   },
-  "packageManager": "yarn@4.4.1"
+  "packageManager": "yarn@4.4.1",
+  "devDependencies": {
+    "sass-embedded": "^1.79.5"
+  }
 }

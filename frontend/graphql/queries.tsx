@@ -1,17 +1,16 @@
 import { gql } from 'graphql-tag'
-// import { gql } from '@apollo/client/core'
 
-export const chefQuery = gql`
-  query chefQuery {
-    chef(id: 1) {
-      data {
-        attributes {
-          Name
-        }
-      }
-    }
-  }
-`
+// export const chefQuery = gql`
+//   query chefQuery {
+//     chef(id: 1) {
+//       data {
+//         attributes {
+//           Name
+//         }
+//       }
+//     }
+//   }
+// `
 export const chefsQuery = gql`
   query chefsQuery {
     chefs {
@@ -33,59 +32,59 @@ export const chefsQuery = gql`
   }
 `
 
-export const homepageContent = gql`
-  query homepageContent {
-    homepage {
-      data {
-        attributes {
-          blocks {
-            __typename
-            ... on ComponentBlockHero {
-              Description
-              button {
-                title
-                link
-                size
-              }
-              quote {
-                id
-                title
-                size
-              }
-              image {
-                data {
-                  attributes {
-                    url
-                  }
-                }
-              }
-            }
-            ... on ComponentListListChef {
-              chefs {
-                data {
-                  attributes {
-                    Name
-                    description
-                  }
-                }
-              }
-            }
-            ... on ComponentBlockCtaDishes {
-              dishes {
-                data {
-                  attributes {
-                    Name
-                    description
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const homepageContent = gql`
+//   query homepageContent {
+//     homepage {
+//       data {
+//         attributes {
+//           blocks {
+//             __typename
+//             ... on ComponentBlockHero {
+//               Description
+//               button {
+//                 title
+//                 link
+//                 size
+//               }
+//               quote {
+//                 id
+//                 title
+//                 size
+//               }
+//               image {
+//                 data {
+//                   attributes {
+//                     url
+//                   }
+//                 }
+//               }
+//             }
+//             ... on ComponentListListChef {
+//               chefs {
+//                 data {
+//                   attributes {
+//                     Name
+//                     description
+//                   }
+//                 }
+//               }
+//             }
+//             ... on ComponentBlockCtaDishes {
+//               dishes {
+//                 data {
+//                   attributes {
+//                     Name
+//                     description
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
 export const dishQuery = gql`
   query dishQuery($id: ID!) {
@@ -115,31 +114,31 @@ export const dishQuery = gql`
   }
 `
 
-export const navigationQuery = gql`
-  query navigationQuery {
-    navigation {
-      data {
-        attributes {
-          navitems {
-            id
-            name
-            slug
-            path
-            is_external
-            page {
-              data {
-                attributes {
-                  name
-                  slug
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const navigationQuery = gql`
+//   query navigationQuery {
+//     navigation {
+//       data {
+//         attributes {
+//           navitems {
+//             id
+//             name
+//             slug
+//             path
+//             is_external
+//             page {
+//               data {
+//                 attributes {
+//                   name
+//                   slug
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
 
 export const getPageBySlugQuery = gql`
   query getPageBySlug($slug: String!) {

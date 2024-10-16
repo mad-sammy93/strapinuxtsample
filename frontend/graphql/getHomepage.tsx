@@ -27,8 +27,11 @@ export const homepageContent = gql`
               }
             }
             ... on ComponentListListChef {
+              id
+              title
               chefs {
                 data {
+                  id
                   attributes {
                     Name
                     description
@@ -37,6 +40,8 @@ export const homepageContent = gql`
               }
             }
             ... on ComponentBlockCtaDishes {
+              id
+              title
               dishes {
                 data {
                   attributes {

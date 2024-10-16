@@ -1,27 +1,18 @@
 <template>
   <div class="relative w-full" >
-    <NuxtImg v-if="image" :src="$getImageUrl(image)" alt="" class="w-full object-cover object-bottom top h-screen" />
-    <!-- <AtomTitle /> -->
-    <AtomQuote :text="quote" :size="quoteSize"/>
-    <AtomButton :text="buttonText" :link="buttonLink" class="absolute bottom-1/2 left-1/4" :size="buttonSize" />
+    <NuxtImg v-if="data?.image?.data?.attributes?.url" :src="$getImageUrl(data?.image?.data?.attributes?.url)" alt="" class="w-full object-cover object-bottom top h-screen" />
+    <!-- {{ data?.Description }} -->
+    <AtomQuote :quote="data?.quote"/>
+    <AtomButton :button="data?.button" />
   </div>
 </template>
 
 <script setup lang="ts">
 const { $getImageUrl } = useNuxtApp()
-import type {Enum_Componentatomquote_Size,Enum_Componentatombutton_Size } from '~/types'
+import type {ComponentBlockHero } from '~/types'
 defineProps({
-  image: String,
-  quote: String,
-  quoteSize: {
-    default: 'lg', 
-    type: String as PropType<Enum_Componentatomquote_Size> 
-  },
-  buttonLink : String,
-  buttonText: String,
-  buttonSize: {
-    default: 'lg', 
-    type: String as PropType<Enum_Componentatombutton_Size>,
+  data: {
+    type: Object as PropType<ComponentBlockHero>,
   }
 })
 </script>

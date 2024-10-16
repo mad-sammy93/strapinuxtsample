@@ -12,7 +12,7 @@
         >Style</NuxtLink
       >
       <div class="flex space-x-2">
-        <!-- <div v-if="navigation?.navigation?.data?.attributes?.navitems">
+        <div v-if="navigation?.navigation?.data?.attributes?.navitems">
           <NuxtLink
             v-for="link in navigation.navigation.data.attributes.navitems"
             :key="link.id"
@@ -21,21 +21,20 @@
             class="text-yellow-400 mr-5 text-xl [text-shadow:_0px_1px_10px_rgb(0_0_0_/_80%)]"
             >{{ link.name }}</NuxtLink
           >
-        </div> -->
+        </div>
       </div>
     </div>
   </header>
 </template>
 <script setup>
-// import { navigationQuery } from '~/graphql/queries'
-// const { data: navigation } = useAsyncQueryResult(navigationQuery)
-// const {result:navigation} =  useQuery(navigationQuery);
+import { getNavItems } from '@/graphql/getNavItems'
+const {result:navigation} =  useQuery(getNavItems);
 </script>
-<!-- <style scoped >
-// .page-links
-//   .router-link-active,
-//   .router-link-exact-active 
-//     font-family: 'BlantikScript', sans-serif
-//     padding-bottom: 0.3rem
-//     border-bottom: 2px solid #f1c40f
-</style> -->
+<style scoped lang="sass">
+ .page-links
+   .router-link-active,
+   .router-link-exact-active 
+     font-family: 'BlantikScript', sans-serif
+     padding-bottom: 0.3rem
+     border-bottom: 2px solid #f1c40f
+</style>

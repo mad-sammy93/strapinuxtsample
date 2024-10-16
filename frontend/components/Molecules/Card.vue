@@ -1,7 +1,7 @@
 <template>
   <div class="shadow rouded overflow-hidde flex justify-between mb-4">
     <div class="flex">
-      {{ item }}
+      <!-- {{ item }} -->
       <img
         :src="image"
         :alt="title"

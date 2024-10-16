@@ -1,3 +1,3 @@
 export const useSizeFormat = (size: string) => {
-  return size.replace('size_', '');
+  return size?.replace('size_', '');
 }
