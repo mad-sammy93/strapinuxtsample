@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 const { $getImageUrl } = useNuxtApp()
-import type {ComponentBlockHero } from '~/types'
+import type { ComponentBlockHero } from '~/types'
 defineProps({
   data: {
     type: Object as PropType<ComponentBlockHero>,
