@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { dishQuery } from "~/graphql/queries";
-import type {Enum_Componentmoleculesdishcard_Size} from '~/types'
+import type {Enum_Componentmoleculesdishcard_Size, GetDishDetailQuery} from '~/types'
 const { $getImageUrl } = useNuxtApp()
 
 const prop = defineProps({
@@ -18,10 +18,11 @@ const dishInfo = ref({
   description: '',
   prebaredBy: '',
 });
-const getChefName =  (id: string) => {
+const getDishName =  (id: string) => {
   console.log(id)
 
-  const {result:data} =  useQuery(dishQuery, { id });
+  const {result:data} =  useQuery<GetDishDetailQuery>(dishQuery, { id });
+  console.log('[DISH]',data.value?.dish);
   
   watchEffect(() => {
     const dish = data?.value?.dish?.data?.attributes;
@@ -39,16 +40,15 @@ const getChefName =  (id: string) => {
   return dishInfo;
 }
 onMounted(() => {
-  getChefName(`${prop.id}`)
+  getDishName(`${prop.id}`)
 })
 </script>
 <template>
-    <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-      <NuxtImg v-if="dishInfo.imageUrl" :src="$getImageUrl(dishInfo.imageUrl)" :alt="dishInfo.imageAlt" class="w-full object-cover  top h-screen" :class="(size=='full'? 'object-bottom [height:600px]': 'object-center [height:300px]')" />
-      <div class="p-4">
-        <h4 class="text-green-700 font-semibold mb-2">{{ dishInfo.name }}</h4>
-        <p class="text-gray-500 text-sm mb-2">{{ dishInfo.description }}</p>
-        <p class="text-gray-400 text-xs">prepared by <NuxtLink :to="`/chef/${dishInfo.prebaredBy}`" class="text-gray-700 font-semibold">{{ dishInfo.prebaredBy }}</NuxtLink></p>
-      </div>
+  <div class="bg-white rounded-lg overflow-hidden shadow-lg flex">
+    <NuxtImg v-if="dishInfo.imageUrl" :src="$getImageUrl(dishInfo.imageUrl)" :alt="dishInfo.imageAlt" class="min-w-[400px] object-cover  top h-screen" :class="(size=='full'? 'object-bottom [height:600px]': 'object-center [height:300px]')" />
+    <div class="p-10">
+      <NuxtLink :to="`/dish/${id}`"><h4 class="text-green-700 text-2xl font-semibold mb-2">{{ dishInfo.name }}</h4></NuxtLink>
+      <p class="text-gray-500 text-lg mb-2">{{ dishInfo.description }}</p>
     </div>
+  </div>
 </template>

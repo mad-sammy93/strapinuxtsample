@@ -7,6 +7,7 @@ export const homepageContent = gql`
           blocks {
             __typename
             ... on ComponentBlockHero {
+              id
               Description
               button {
                 title
@@ -44,6 +45,7 @@ export const homepageContent = gql`
               title
               dishes {
                 data {
+                  id
                   attributes {
                     Name
                     description

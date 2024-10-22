@@ -1,25 +1,24 @@
 import { gql } from 'graphql-tag'
-export const getChefDetails = gql`
-  query getChefDetails($id: ID!) {
-    chef(id: $id) {
-      __typename
+export const getDishDetail = gql`
+  query getDishDetail($id: ID!) {
+    dish(id: $id) {
       data {
-        __typename
         attributes {
           Name
+          created_by_chef {
+            data {
+              id
+              attributes {
+                Name
+              }
+            }
+          }
           description
           image {
             data {
               attributes {
                 url
-              }
-            }
-          }
-          dishes {
-            data {
-              attributes {
-                Name
-                description
+                alternativeText
               }
             }
           }

@@ -1,16 +1,16 @@
 <template>
-  <header class="bg-opacity-25 header sticky top-0 z-50 flex justify-between items-center space-x-1 bg-gray-800 p-4 shadow-md">
+  <header class="bg-opacity-90 header sticky top-0 z-50 flex justify-between items-center space-x-1 bg-slate-700 p-4 shadow-md">
     <NuxtLink
       class="text-3xl font0mono text-yellow-400 [text-shadow:_0px_1px_10px_rgb(0_0_0_/_80%)]"
       to="/"
       >CURRY & Co.</NuxtLink
     >
     <div class="flex page-links">
-      <NuxtLink
+      <!-- <NuxtLink
         to="/style"
         class="text-yellow-400 mr-5 text-xl [text-shadow:_0px_1px_10px_rgb(0_0_0_/_80%)]"
         >Style</NuxtLink
-      >
+      > -->
       <div class="flex space-x-2">
         <div v-if="navigation?.navigation?.data?.attributes?.navitems">
           <NuxtLink

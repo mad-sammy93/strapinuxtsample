@@ -1536,17 +1536,24 @@ export type WebsiteInfoInput = {
   site_logo?: InputMaybe<Scalars['ID']['input']>;
 };
 
-export type GetChefDetailsQueryVariables = Exact<{
+export type GetChefDetailQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
 
 
-export type GetChefDetailsQuery = { __typename?: 'Query', chef?: { __typename: 'ChefEntityResponse', data?: { __typename: 'ChefEntity', attributes?: { __typename?: 'Chef', Name: string, description?: string | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | null } | null } | null };
+export type GetChefDetailQuery = { __typename?: 'Query', chef?: { __typename: 'ChefEntityResponse', data?: { __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename: 'Chef', Name: string, description?: string | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', alternativeText?: string | null, url: string } | null } | null }, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | null } | null } | null };
+
+export type GetDishDetailQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+
+export type GetDishDetailQuery = { __typename?: 'Query', dish?: { __typename?: 'DishEntityResponse', data?: { __typename?: 'DishEntity', attributes?: { __typename?: 'Dish', Name: string, description?: string | null, created_by_chef?: { __typename?: 'ChefEntityResponse', data?: { __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename?: 'Chef', Name: string } | null } | null } | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } } | null } | null } | null };
 
 export type HomepageContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomepageContentQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', blocks?: Array<{ __typename: 'ComponentBlockCtaDishes', id: string, title?: string | null, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | { __typename: 'ComponentBlockHero', Description?: string | null, button?: { __typename?: 'ComponentAtomButton', title?: string | null, link?: string | null, size?: Enum_Componentatombutton_Size | null } | null, quote?: { __typename?: 'ComponentAtomQuote', id: string, title?: string | null, size?: Enum_Componentatomquote_Size | null } | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename: 'ComponentListListChef', id: string, title?: string | null, chefs?: { __typename?: 'ChefRelationResponseCollection', data: Array<{ __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename?: 'Chef', Name: string, description?: string | null } | null }> } | null } | { __typename: 'Error' } | null> | null } | null } | null } | null };
+export type HomepageContentQuery = { __typename?: 'Query', homepage?: { __typename?: 'HomepageEntityResponse', data?: { __typename?: 'HomepageEntity', attributes?: { __typename?: 'Homepage', blocks?: Array<{ __typename: 'ComponentBlockCtaDishes', id: string, title?: string | null, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | { __typename: 'ComponentBlockHero', id: string, Description?: string | null, button?: { __typename?: 'ComponentAtomButton', title?: string | null, link?: string | null, size?: Enum_Componentatombutton_Size | null } | null, quote?: { __typename?: 'ComponentAtomQuote', id: string, title?: string | null, size?: Enum_Componentatomquote_Size | null } | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | { __typename: 'ComponentListListChef', id: string, title?: string | null, chefs?: { __typename?: 'ChefRelationResponseCollection', data: Array<{ __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename?: 'Chef', Name: string, description?: string | null } | null }> } | null } | { __typename: 'Error' } | null> | null } | null } | null } | null };
 
 export type NavigationQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

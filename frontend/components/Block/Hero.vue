@@ -1,9 +1,10 @@
 <template>
   <div class="relative w-full" >
+    <!-- FIXME Layout  -->
     <NuxtImg v-if="data?.image?.data?.attributes?.url" :src="$getImageUrl(data?.image?.data?.attributes?.url)" alt="" class="w-full object-cover object-bottom top h-screen" />
-    <!-- {{ data?.Description }} -->
-    <AtomQuote :quote="data?.quote"/>
-    <AtomButton :button="data?.button" />
+   <!-- <pre> {{ data }}</pre> -->
+    <AtomQuote :quote="data?.quote ?? undefined"/>
+    <AtomButton :button="data?.button ?? undefined" />
   </div>
 </template>
 
