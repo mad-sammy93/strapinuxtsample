@@ -1,5 +1,5 @@
 import { gql } from 'graphql-tag'
-export const getChefsQuery = gql`
+export const getChefs = gql`
   query getChefs {
     chefs {
       data {

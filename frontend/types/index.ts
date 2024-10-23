@@ -1543,6 +1543,11 @@ export type GetChefDetailQueryVariables = Exact<{
 
 export type GetChefDetailQuery = { __typename?: 'Query', chef?: { __typename: 'ChefEntityResponse', data?: { __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename: 'Chef', Name: string, description?: string | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', alternativeText?: string | null, url: string } | null } | null }, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | null } | null } | null };
 
+export type GetChefsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetChefsQuery = { __typename?: 'Query', chefs?: { __typename?: 'ChefEntityResponseCollection', data: Array<{ __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename?: 'Chef', Name: string, description?: string | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null }, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | null }> } | null };
+
 export type GetDishDetailQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
@@ -1567,7 +1572,7 @@ export type GetPageBySlugQueryVariables = Exact<{
 
 export type GetPageBySlugQuery = { __typename?: 'Query', pages?: { __typename?: 'PageEntityResponseCollection', data: Array<{ __typename?: 'PageEntity', attributes?: { __typename?: 'Page', name?: string | null, slug?: string | null, PageBlock?: Array<{ __typename: 'ComponentBlockCtaDishes', title?: string | null, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | { __typename: 'ComponentBlockHero', Description?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } | null, button?: { __typename?: 'ComponentAtomButton', title?: string | null, link?: string | null, size?: Enum_Componentatombutton_Size | null } | null, quote?: { __typename?: 'ComponentAtomQuote', id: string, title?: string | null, size?: Enum_Componentatomquote_Size | null } | null } | { __typename: 'ComponentListListChef', id: string, chefs?: { __typename?: 'ChefRelationResponseCollection', data: Array<{ __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename?: 'Chef', Name: string, description?: string | null } | null }> } | null } | { __typename: 'Error' } | null> | null } | null }> } | null };
 
-export type GetChefsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetWebsiteInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetChefsQuery = { __typename?: 'Query', chefs?: { __typename?: 'ChefEntityResponseCollection', data: Array<{ __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename?: 'Chef', Name: string, description?: string | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null }, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | null }> } | null };
+export type GetWebsiteInfoQuery = { __typename?: 'Query', websiteInfo?: { __typename?: 'WebsiteInfoEntityResponse', data?: { __typename?: 'WebsiteInfoEntity', attributes?: { __typename?: 'WebsiteInfo', Site_name: string, site_logo: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null } | null } | null };

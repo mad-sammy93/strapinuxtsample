@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import {getDishDetail} from '@/graphql/getDishDetail'
+import type { DishEntityResponse } from '@/types';
+
+const route = useRoute();
+type resDish = {dish: DishEntityResponse}
+const { result:dishInfo } = useQuery<resDish>(getDishDetail, {id: route.params.id})
+
+useHead({
+  title:'CURRY & Co. | '+ dishInfo?.value?.dish?.data?.attributes?.Name, 
+})
+definePageMeta({
+  layout: 'layout-1440',
+})
+</script>
 <template>
   <div class="bg-green-700 rounded-md shadow rouded overflow-hidden justify-between mb-4">
     <div class="flex flex-col">
@@ -12,20 +27,3 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-import { useRoute } from 'vue-router';
-import {getDishDetail} from '@/graphql/getDishDetail'
-import type { DishEntityResponse } from '@/types';
-
-const route = useRoute();
-type resDish = {dish: DishEntityResponse}
-const { result:dishInfo } = useQuery<resDish>(getDishDetail, {id: route.params.id})
-
-useHead({
-  title:'CURRY & Co. | '+ dishInfo?.value?.dish?.data?.attributes?.Name, 
-})
-definePageMeta({
-  layout: 'layout-1440',
-})
-
-</script>
