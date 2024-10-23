@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 import { homepageContent } from "@/graphql/getHomepage";
-import type { HomepageContentQuery } from "@/types";
+import type { HomepageEntityResponse } from "@/types";
 
-const { result, error:err } = useQuery<HomepageContentQuery>(homepageContent)
+
+type resHome = { homepage : HomepageEntityResponse} 
+const { result, error:err } = useQuery<resHome>(homepageContent)
 console.log('[homepage]',result.value,err.value);
 
 definePageMeta({

@@ -22,7 +22,8 @@
       "type": "dynamiczone",
       "components": [
         "block.hero",
-        "block.cta-dishes"
+        "block.cta-dishes",
+        "list.list-chef"
       ]
     }
   }

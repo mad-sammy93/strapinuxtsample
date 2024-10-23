@@ -1,4 +1,5 @@
 import { gql } from 'graphql-tag'
+
 export const getNavItems = gql`
   query navigationQuery {
     navigation {

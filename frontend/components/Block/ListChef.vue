@@ -1,3 +1,12 @@
+
+<script setup lang="ts">
+import type { ComponentListListChef } from '@/types'
+defineProps({
+  data : {
+    type: Object as PropType<ComponentListListChef>,
+  }
+})
+</script>
 <template>
   <section class="bg-green-700 py-10 px-5 lg:px-16">
     <div class="mx-auto mt-2 max-w-6xl space-y-4 px-4 xs:px-8 sm:px-10 lg:px-16 pb-16 w-4/5">
@@ -13,11 +22,3 @@
     </div>
   </section>
 </template>
-<script setup lang="ts">
-import type { ComponentListListChef } from '@/types'
-defineProps({
-  data : {
-    type: Object as PropType<ComponentListListChef>,
-  }
-})
-</script>

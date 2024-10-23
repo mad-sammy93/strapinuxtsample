@@ -932,7 +932,7 @@ export type PageInput = {
   slug?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type PagePageBlockDynamicZone = ComponentBlockCtaDishes | ComponentBlockHero | Error;
+export type PagePageBlockDynamicZone = ComponentBlockCtaDishes | ComponentBlockHero | ComponentListListChef | Error;
 
 export type Pagination = {
   __typename?: 'Pagination';
@@ -1560,21 +1560,14 @@ export type NavigationQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type NavigationQueryQuery = { __typename?: 'Query', navigation?: { __typename?: 'NavigationEntityResponse', data?: { __typename?: 'NavigationEntity', attributes?: { __typename?: 'Navigation', navitems?: Array<{ __typename?: 'ComponentNavNavItems', id: string, name: string, slug: string, path: string, is_external?: boolean | null, page?: { __typename?: 'PageEntityResponse', data?: { __typename?: 'PageEntity', attributes?: { __typename?: 'Page', name?: string | null, slug?: string | null } | null } | null } | null } | null> | null } | null } | null } | null };
 
-export type ChefsQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ChefsQueryQuery = { __typename?: 'Query', chefs?: { __typename?: 'ChefEntityResponseCollection', data: Array<{ __typename?: 'ChefEntity', attributes?: { __typename?: 'Chef', Name: string, description?: string | null, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | null }> } | null };
-
-export type DishQueryQueryVariables = Exact<{
-  id: Scalars['ID']['input'];
-}>;
-
-
-export type DishQueryQuery = { __typename?: 'Query', dish?: { __typename?: 'DishEntityResponse', data?: { __typename?: 'DishEntity', attributes?: { __typename?: 'Dish', Name: string, description?: string | null, created_by_chef?: { __typename?: 'ChefEntityResponse', data?: { __typename?: 'ChefEntity', attributes?: { __typename?: 'Chef', Name: string } | null } | null } | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } } | null } | null } | null };
-
 export type GetPageBySlugQueryVariables = Exact<{
   slug: Scalars['String']['input'];
 }>;
 
 
-export type GetPageBySlugQuery = { __typename?: 'Query', pages?: { __typename?: 'PageEntityResponseCollection', data: Array<{ __typename?: 'PageEntity', attributes?: { __typename?: 'Page', name?: string | null, slug?: string | null, PageBlock?: Array<{ __typename: 'ComponentBlockCtaDishes', title?: string | null, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | { __typename: 'ComponentBlockHero', Description?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } | null, button?: { __typename?: 'ComponentAtomButton', title?: string | null, link?: string | null, size?: Enum_Componentatombutton_Size | null } | null, quote?: { __typename?: 'ComponentAtomQuote', id: string, title?: string | null, size?: Enum_Componentatomquote_Size | null } | null } | { __typename: 'Error' } | null> | null } | null }> } | null };
+export type GetPageBySlugQuery = { __typename?: 'Query', pages?: { __typename?: 'PageEntityResponseCollection', data: Array<{ __typename?: 'PageEntity', attributes?: { __typename?: 'Page', name?: string | null, slug?: string | null, PageBlock?: Array<{ __typename: 'ComponentBlockCtaDishes', title?: string | null, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | { __typename: 'ComponentBlockHero', Description?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } | null, button?: { __typename?: 'ComponentAtomButton', title?: string | null, link?: string | null, size?: Enum_Componentatombutton_Size | null } | null, quote?: { __typename?: 'ComponentAtomQuote', id: string, title?: string | null, size?: Enum_Componentatomquote_Size | null } | null } | { __typename: 'ComponentListListChef', id: string, chefs?: { __typename?: 'ChefRelationResponseCollection', data: Array<{ __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename?: 'Chef', Name: string, description?: string | null } | null }> } | null } | { __typename: 'Error' } | null> | null } | null }> } | null };
+
+export type GetChefsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetChefsQuery = { __typename?: 'Query', chefs?: { __typename?: 'ChefEntityResponseCollection', data: Array<{ __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename?: 'Chef', Name: string, description?: string | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null }, dishes?: { __typename?: 'DishRelationResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null } | null }> } | null } | null }> } | null };
