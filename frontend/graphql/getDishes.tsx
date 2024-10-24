@@ -4,6 +4,7 @@ export const getDishes = gql`
     dishes {
       __typename
       data {
+        id
         attributes {
           Name
           description

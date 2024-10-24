@@ -1555,6 +1555,11 @@ export type GetDishDetailQueryVariables = Exact<{
 
 export type GetDishDetailQuery = { __typename?: 'Query', dish?: { __typename?: 'DishEntityResponse', data?: { __typename?: 'DishEntity', attributes?: { __typename?: 'Dish', Name: string, description?: string | null, created_by_chef?: { __typename?: 'ChefEntityResponse', data?: { __typename?: 'ChefEntity', id?: string | null, attributes?: { __typename?: 'Chef', Name: string } | null } | null } | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null } | null } | null } } | null } | null } | null };
 
+export type GetDishesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetDishesQuery = { __typename?: 'Query', dishes?: { __typename: 'DishEntityResponseCollection', data: Array<{ __typename?: 'DishEntity', id?: string | null, attributes?: { __typename?: 'Dish', Name: string, description?: string | null, created_by_chef?: { __typename?: 'ChefEntityResponse', data?: { __typename?: 'ChefEntity', id?: string | null } | null } | null } | null }> } | null };
+
 export type HomepageContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 

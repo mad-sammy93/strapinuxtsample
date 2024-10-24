@@ -20,4 +20,4 @@ https://bitbucket.org/jeschippers/strapinuxtbootstrap/
 ```docker compose run --rm frontend yarn generate-types```
 
 ## Cleanup cache
-``` docker exec -it <container ID> /bin/sh -c "npx nuxi cleanup"    ```
+``` docker exec -it <container ID> /bin/sh -c "npx nuxi cleanup"```

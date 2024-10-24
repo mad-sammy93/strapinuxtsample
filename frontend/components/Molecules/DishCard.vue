@@ -14,8 +14,10 @@ const prop = defineProps({
 const { result:dishInfo } = useQuery<resDish>(getDishDetail, { id: prop.id })
 </script>
 <template>
-  <div class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg flex">
-    <NuxtImg v-if="dishInfo?.dish?.data?.attributes?.image" :src="$getImageUrl(String(dishInfo?.dish?.data?.attributes?.image?.data?.attributes?.url))" :alt="dishInfo?.dish?.data?.attributes?.image?.data?.attributes?.alternativeText || ''" class="min-w-[400px] object-cover  top h-screen" :class="(size=='full'? 'object-bottom [height:600px]': 'object-center [height:300px]')" />
+  <div class="bg-gray-100 dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg flex">
+    <NuxtLink :to="`/dish/${id}`">
+      <NuxtImg v-if="dishInfo?.dish?.data?.attributes?.image" :src="$getImageUrl(String(dishInfo?.dish?.data?.attributes?.image?.data?.attributes?.url))" :alt="dishInfo?.dish?.data?.attributes?.image?.data?.attributes?.alternativeText || ''" class="min-w-[400px] object-cover  top h-screen" :class="(size=='full'? 'object-bottom [height:600px]': 'object-center [height:300px]')" />
+    </NuxtLink>
     <div class="p-10">
       <NuxtLink :to="`/dish/${id}`">
         <h4 class="text-green-700 dark:text-white text-2xl font-semibold mb-2">{{ dishInfo?.dish?.data?.attributes?.Name }}</h4>
