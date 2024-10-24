@@ -16,6 +16,16 @@
         <template v-if="block?.__typename === 'ComponentBlockCtaDishes'">
           <BlockCtaDishes :data="block"/>
         </template>
+
+        <!-- ComponentBlockImage1440Px -->
+        <template v-if="block?.__typename === 'ComponentBlockContact'">
+          <BlockContact :data="block"/>
+        </template>
+
+        <!-- ComponentBlockImage1440Px -->
+        <template v-if="block?.__typename === 'ComponentBlockImage1440Px'">
+          <BlockImage1440 :data="block"/>
+        </template>
       </div>
     </div>
     <div v-else>

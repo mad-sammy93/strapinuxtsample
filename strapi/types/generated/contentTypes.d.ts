@@ -965,7 +965,13 @@ export interface ApiPagePage extends Schema.CollectionType {
     name: Attribute.String;
     slug: Attribute.String;
     PageBlock: Attribute.DynamicZone<
-      ['block.hero', 'block.cta-dishes', 'list.list-chef']
+      [
+        'block.hero',
+        'block.cta-dishes',
+        'list.list-chef',
+        'block.contact',
+        'block.image-1440px'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

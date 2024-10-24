@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_block_contacts",
+  "info": {
+    "displayName": "Contact",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "Form": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

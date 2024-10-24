@@ -23,7 +23,9 @@
       "components": [
         "block.hero",
         "block.cta-dishes",
-        "list.list-chef"
+        "list.list-chef",
+        "block.contact",
+        "block.image-1440px"
       ]
     }
   }

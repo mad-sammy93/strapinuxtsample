@@ -53,6 +53,18 @@ export const getPageBySlugQuery = gql`
                 }
               }
             }
+            ... on ComponentBlockContact {
+              Form
+            }
+            ... on ComponentBlockImage1440Px {
+              image {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+            }
           }
         }
       }
