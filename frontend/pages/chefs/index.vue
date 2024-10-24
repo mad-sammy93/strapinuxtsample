@@ -13,7 +13,7 @@ useHead({
 })
 </script>
 <template>
-  <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 ">
+  <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3  py-20">
     <div v-for="chef in chefInfo?.chefs.data" class="w-full max-w-sm bg-slate-300 dark:bg-cyan-700 border border-gray-200 dark:border-cyan-900 rounded-lg shadow ">
       <div class="flex flex-col items-center py-10">
         <NuxtImg v-if="chef?.attributes?.image" :src="$getImageUrl(String(chef?.attributes?.image?.data?.attributes?.url))" class="w-60 h-60 mb-3 rounded-full shadow-lg object-cover" />

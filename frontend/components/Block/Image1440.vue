@@ -1,5 +1,5 @@
 <template>
-  <div class="relative py-10 max-w-[800px] mx-auto ">
+  <div class="relative pt-[150px] max-w-[800px] mx-auto ">
     <NuxtImg :src="$getImageUrl(String(data?.image?.data?.attributes?.url))" :alt="data?.image?.data?.attributes?.name" class="w-full  object-cover" />
   </div>
 </template>
