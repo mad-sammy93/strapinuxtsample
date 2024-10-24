@@ -13,7 +13,7 @@ useHead({
 })
 </script>
 <template>
-  <div class="grid grid-cols-1 gap-10 py-20">
+  <div class="grid grid-cols-1 gap-10">
     <MoleculesDishCard
       v-for="(dish, index) in dishInfo?.dishes?.data"
       :key="index"
