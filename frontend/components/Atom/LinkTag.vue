@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="link" class="bg-gray-300 text-gray-700 rounded-lg overflow-hidden shadow-lg  hover:bg-gray-700 hover:text-white ease-in-out duration-300 px-2 py-1 font-semibold">
+  <NuxtLink :to="link" class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded hover:bg-gray-700 hover:text-gray-400 border border-gray-500 ease-in duration-75">
     <slot />
   </NuxtLink>
 </template>

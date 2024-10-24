@@ -8,8 +8,7 @@ defineProps({
 })
 </script>
 <template>
-  <!-- {{ quote }} -->
-  <div class="absolute z-10 bottom-1/2 right-80 text-white font-bold max-w-xs [text-shadow:_0px_1px_10px_rgb(0_0_0_/_80%)] " :class="quote?.size ? `text-${useSizeFormat(quote?.size)}` : 'text-6xl'">
+  <div class="text-center text-white font-bold my-4 [text-shadow:_0px_1px_10px_rgb(0_0_0_/_80%)] " :class="quote?.size ? `text-${useSizeFormat(quote?.size)}` : 'text-6xl'">
     {{ quote?.title }}
   </div>
 </template>

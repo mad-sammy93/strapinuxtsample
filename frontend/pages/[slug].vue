@@ -32,8 +32,18 @@ const route = useRoute();
 const slug = route.params.slug;
 type resPage = { pages : PageEntityResponseCollection} 
 const { result, loading, error } = useQuery<resPage>(getPageBySlugQuery, { slug })
+console.log('[page]',loading.value);
 
 useHead({
   title:'CURRY & Co. | ', // TODO get from strapi
 })
+// Watch for result or error after loading
+watchEffect(() => {
+  if (!loading.value && !result.value?.pages?.data.length) {
+    showError({
+      statusCode: 404,
+      statusMessage: `Page not found: ${slug}`,
+    });
+  }
+});
 </script>
