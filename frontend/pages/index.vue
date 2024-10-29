@@ -2,16 +2,14 @@
 import { homepageContent } from "@/graphql/getHomepage";
 import type { HomepageEntityResponse } from "@/types";
 
-
 type resHome = { homepage : HomepageEntityResponse} 
 const { result, error:err } = useQuery<resHome>(homepageContent)
-console.log('[homepage]',result.value,err.value);
 
 definePageMeta({
   layout: 'homepage'
 })
 useHead({
-  title:'CURRY & Co. | Home', // TODO get from strapi
+  title:'CURRY & Co. | Home',
 })
 </script>
 <template>

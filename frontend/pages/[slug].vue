@@ -42,7 +42,6 @@ const route = useRoute();
 const slug = route.params.slug;
 type resPage = { pages : PageEntityResponseCollection} 
 const { result, loading, error } = useQuery<resPage>(getPageBySlugQuery, { slug })
-console.log('[page]',loading.value);
 
 useHead({
   title:'CURRY & Co. | ', // TODO get from strapi

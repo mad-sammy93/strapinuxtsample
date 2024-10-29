@@ -16,6 +16,44 @@ export interface NavNavItems extends Schema.Component {
   };
 }
 
+export interface MoleculesDishCard extends Schema.Component {
+  collectionName: 'components_molecules_dish_cards';
+  info: {
+    displayName: 'DishCard';
+    icon: 'restaurant';
+  };
+  attributes: {
+    DishId: Attribute.String;
+    size: Attribute.Enumeration<['full', 'half']>;
+  };
+}
+
+export interface MoleculesChefCard extends Schema.Component {
+  collectionName: 'components_molecules_chef_cards';
+  info: {
+    displayName: 'ChefCard';
+    icon: 'emotionHappy';
+  };
+  attributes: {
+    chefId: Attribute.String;
+    size: Attribute.Enumeration<['full', 'half']>;
+  };
+}
+
+export interface MoleculesCard extends Schema.Component {
+  collectionName: 'components_molecules_cards';
+  info: {
+    displayName: 'Card';
+    icon: 'command';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    link: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface ListListChef extends Schema.Component {
   collectionName: 'components_list_list_chefs';
   info: {
@@ -142,48 +180,13 @@ export interface BlockContact extends Schema.Component {
   };
 }
 
-export interface MoleculesDishCard extends Schema.Component {
-  collectionName: 'components_molecules_dish_cards';
-  info: {
-    displayName: 'DishCard';
-    icon: 'restaurant';
-  };
-  attributes: {
-    DishId: Attribute.String;
-    size: Attribute.Enumeration<['full', 'half']>;
-  };
-}
-
-export interface MoleculesChefCard extends Schema.Component {
-  collectionName: 'components_molecules_chef_cards';
-  info: {
-    displayName: 'ChefCard';
-    icon: 'emotionHappy';
-  };
-  attributes: {
-    chefId: Attribute.String;
-    size: Attribute.Enumeration<['full', 'half']>;
-  };
-}
-
-export interface MoleculesCard extends Schema.Component {
-  collectionName: 'components_molecules_cards';
-  info: {
-    displayName: 'Card';
-    icon: 'command';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    link: Attribute.String;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'nav.nav-items': NavNavItems;
+      'molecules.dish-card': MoleculesDishCard;
+      'molecules.chef-card': MoleculesChefCard;
+      'molecules.card': MoleculesCard;
       'list.list-chef': ListListChef;
       'atom.quote': AtomQuote;
       'atom.button': AtomButton;
@@ -192,9 +195,6 @@ declare module '@strapi/types' {
       'block.hero': BlockHero;
       'block.cta-dishes': BlockCtaDishes;
       'block.contact': BlockContact;
-      'molecules.dish-card': MoleculesDishCard;
-      'molecules.chef-card': MoleculesChefCard;
-      'molecules.card': MoleculesCard;
     }
   }
 }

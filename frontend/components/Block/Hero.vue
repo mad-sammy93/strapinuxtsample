@@ -17,14 +17,14 @@ defineProps({
         :alt="data?.image?.data?.attributes?.name"
         class="relative w-full object-cover object-bottom top h-screen"
       />
-      <div class="absolute flex-col gap-20 p-20 z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div class="absolute flex-col gap-20 w-full  md:max-w-[1200px] z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <AtomQuote
           v-if="data?.quote"
           :quote="data?.quote ?? undefined"
         />
         <div
           v-if="data?.Description"
-          class="text-shadow py-20 text-white mx-auto w-full max-w-[1440px] text-2xl"
+          class="text-shadow p-5 lg:p-20   text-white mx-auto text-2xl"
         >
           {{ data?.Description }}
         </div>
