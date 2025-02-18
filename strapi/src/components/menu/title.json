@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_menu_titles",
+  "info": {
+    "displayName": "title"
+  },
+  "options": {},
+  "attributes": {
+    "sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::section.section"
+    }
+  }
+}

@@ -8,7 +8,7 @@ defineProps({
 })
 </script>
 <template>
-  <div class="relative w-full h-full ">
+  <div class="relative w-full h-full z-10">
     <div class="overlay"></div>
     <div class="mx-auto text-center relative ">
       <NuxtImg
@@ -24,7 +24,7 @@ defineProps({
         />
         <div
           v-if="data?.Description"
-          class="text-shadow p-5 lg:p-20   text-white mx-auto text-2xl"
+          class="text-shadow p-5 lg:p-10   text-white mx-auto text-2xl"
         >
           {{ data?.Description }}
         </div>

@@ -919,6 +919,39 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   };
 }
 
+export interface ApiMainMenuMainMenu extends Schema.SingleType {
+  collectionName: 'main_menus';
+  info: {
+    singularName: 'main-menu';
+    pluralName: 'main-menus';
+    displayName: 'MainMenu';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    mainmenuitems: Attribute.DynamicZone<
+      ['menu.menu-link', 'menu.menu-button', 'menu.dropdown']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::main-menu.main-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::main-menu.main-menu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNavigationNavigation extends Schema.SingleType {
   collectionName: 'navigations';
   info: {
@@ -983,6 +1016,37 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
+export interface ApiSectionSection extends Schema.CollectionType {
+  collectionName: 'sections';
+  info: {
+    singularName: 'section';
+    pluralName: 'sections';
+    displayName: 'Section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    link: Attribute.Component<'menu.link', true>;
+    heading: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::section.section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::section.section',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiWebsiteInfoWebsiteInfo extends Schema.SingleType {
   collectionName: 'website_infos';
   info: {
@@ -1036,8 +1100,10 @@ declare module '@strapi/types' {
       'api::chef.chef': ApiChefChef;
       'api::dish.dish': ApiDishDish;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::main-menu.main-menu': ApiMainMenuMainMenu;
       'api::navigation.navigation': ApiNavigationNavigation;
       'api::page.page': ApiPagePage;
+      'api::section.section': ApiSectionSection;
       'api::website-info.website-info': ApiWebsiteInfoWebsiteInfo;
     }
   }

@@ -16,44 +16,6 @@ export interface NavNavItems extends Schema.Component {
   };
 }
 
-export interface MoleculesDishCard extends Schema.Component {
-  collectionName: 'components_molecules_dish_cards';
-  info: {
-    displayName: 'DishCard';
-    icon: 'restaurant';
-  };
-  attributes: {
-    DishId: Attribute.String;
-    size: Attribute.Enumeration<['full', 'half']>;
-  };
-}
-
-export interface MoleculesChefCard extends Schema.Component {
-  collectionName: 'components_molecules_chef_cards';
-  info: {
-    displayName: 'ChefCard';
-    icon: 'emotionHappy';
-  };
-  attributes: {
-    chefId: Attribute.String;
-    size: Attribute.Enumeration<['full', 'half']>;
-  };
-}
-
-export interface MoleculesCard extends Schema.Component {
-  collectionName: 'components_molecules_cards';
-  info: {
-    displayName: 'Card';
-    icon: 'command';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    link: Attribute.String;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
 export interface ListListChef extends Schema.Component {
   collectionName: 'components_list_list_chefs';
   info: {
@@ -63,56 +25,6 @@ export interface ListListChef extends Schema.Component {
   attributes: {
     title: Attribute.String;
     chefs: Attribute.Relation<'list.list-chef', 'oneToMany', 'api::chef.chef'>;
-  };
-}
-
-export interface AtomQuote extends Schema.Component {
-  collectionName: 'components_atom_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'bulletList';
-  };
-  attributes: {
-    title: Attribute.String;
-    size: Attribute.Enumeration<
-      [
-        'size_2xl',
-        'size_3xl',
-        'size_4xl',
-        'size_5xl',
-        'size_6xl',
-        'size_lg',
-        'size_md',
-        'size_sm',
-        'size_xl'
-      ]
-    >;
-  };
-}
-
-export interface AtomButton extends Schema.Component {
-  collectionName: 'components_atom_buttons';
-  info: {
-    displayName: 'Button';
-    icon: 'feather';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    link: Attribute.String;
-    size: Attribute.Enumeration<
-      [
-        'size_2xl',
-        'size_3xl',
-        'size_4xl',
-        'size_5xl',
-        'size_6xl',
-        'size_lg',
-        'size_md',
-        'size_sm',
-        'size_xl'
-      ]
-    >;
   };
 }
 
@@ -180,21 +92,182 @@ export interface BlockContact extends Schema.Component {
   };
 }
 
+export interface MoleculesDishCard extends Schema.Component {
+  collectionName: 'components_molecules_dish_cards';
+  info: {
+    displayName: 'DishCard';
+    icon: 'restaurant';
+  };
+  attributes: {
+    DishId: Attribute.String;
+    size: Attribute.Enumeration<['full', 'half']>;
+  };
+}
+
+export interface MoleculesChefCard extends Schema.Component {
+  collectionName: 'components_molecules_chef_cards';
+  info: {
+    displayName: 'ChefCard';
+    icon: 'emotionHappy';
+  };
+  attributes: {
+    chefId: Attribute.String;
+    size: Attribute.Enumeration<['full', 'half']>;
+  };
+}
+
+export interface MoleculesCard extends Schema.Component {
+  collectionName: 'components_molecules_cards';
+  info: {
+    displayName: 'Card';
+    icon: 'command';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    link: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface MenuTitle extends Schema.Component {
+  collectionName: 'components_menu_titles';
+  info: {
+    displayName: 'title';
+  };
+  attributes: {
+    sections: Attribute.Relation<
+      'menu.title',
+      'oneToMany',
+      'api::section.section'
+    >;
+  };
+}
+
+export interface MenuMenuLink extends Schema.Component {
+  collectionName: 'components_menu_menu_links';
+  info: {
+    displayName: 'MenuLink';
+    icon: 'link';
+  };
+  attributes: {
+    title: Attribute.String;
+    url: Attribute.String;
+  };
+}
+
+export interface MenuMenuButton extends Schema.Component {
+  collectionName: 'components_menu_menu_buttons';
+  info: {
+    displayName: 'MenuButton';
+    icon: 'filter';
+  };
+  attributes: {
+    title: Attribute.String;
+    url: Attribute.String;
+    type: Attribute.Enumeration<['Primary', 'Secondary']>;
+  };
+}
+
+export interface MenuLink extends Schema.Component {
+  collectionName: 'components_menu_links';
+  info: {
+    displayName: 'link';
+  };
+  attributes: {
+    name: Attribute.String;
+    url: Attribute.String;
+    description: Attribute.String;
+    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface MenuDropdown extends Schema.Component {
+  collectionName: 'components_menu_dropdowns';
+  info: {
+    displayName: 'Dropdown';
+    icon: 'layer';
+  };
+  attributes: {
+    title: Attribute.String;
+    sections: Attribute.Relation<
+      'menu.dropdown',
+      'oneToMany',
+      'api::section.section'
+    >;
+  };
+}
+
+export interface AtomQuote extends Schema.Component {
+  collectionName: 'components_atom_quotes';
+  info: {
+    displayName: 'Quote';
+    icon: 'bulletList';
+  };
+  attributes: {
+    title: Attribute.String;
+    size: Attribute.Enumeration<
+      [
+        'size_2xl',
+        'size_3xl',
+        'size_4xl',
+        'size_5xl',
+        'size_6xl',
+        'size_lg',
+        'size_md',
+        'size_sm',
+        'size_xl'
+      ]
+    >;
+  };
+}
+
+export interface AtomButton extends Schema.Component {
+  collectionName: 'components_atom_buttons';
+  info: {
+    displayName: 'Button';
+    icon: 'feather';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    link: Attribute.String;
+    size: Attribute.Enumeration<
+      [
+        'size_2xl',
+        'size_3xl',
+        'size_4xl',
+        'size_5xl',
+        'size_6xl',
+        'size_lg',
+        'size_md',
+        'size_sm',
+        'size_xl'
+      ]
+    >;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'nav.nav-items': NavNavItems;
-      'molecules.dish-card': MoleculesDishCard;
-      'molecules.chef-card': MoleculesChefCard;
-      'molecules.card': MoleculesCard;
       'list.list-chef': ListListChef;
-      'atom.quote': AtomQuote;
-      'atom.button': AtomButton;
       'block.list-chef': BlockListChef;
       'block.image-1440px': BlockImage1440Px;
       'block.hero': BlockHero;
       'block.cta-dishes': BlockCtaDishes;
       'block.contact': BlockContact;
+      'molecules.dish-card': MoleculesDishCard;
+      'molecules.chef-card': MoleculesChefCard;
+      'molecules.card': MoleculesCard;
+      'menu.title': MenuTitle;
+      'menu.menu-link': MenuMenuLink;
+      'menu.menu-button': MenuMenuButton;
+      'menu.link': MenuLink;
+      'menu.dropdown': MenuDropdown;
+      'atom.quote': AtomQuote;
+      'atom.button': AtomButton;
     }
   }
 }

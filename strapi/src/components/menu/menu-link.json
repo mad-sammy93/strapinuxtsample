@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_menu_menu_links",
+  "info": {
+    "displayName": "MenuLink",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
