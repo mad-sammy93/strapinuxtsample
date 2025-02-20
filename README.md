@@ -34,7 +34,7 @@ https://bitbucket.org/jeschippers/strapinuxtbootstrap/
 ## 5. Setup Strapi content 
 	- Create Admin user
 	- Add data content to the respective pages and categories
-	- Publish the following pages/content 
+	- Publish the following pages/content/post one added content 
 	- Go to Settings -> Users & Permissions Plugin -> Roles
 	--> Click on Public
 	--> Activate respective api's to have access to graphql and frontend
