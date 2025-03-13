@@ -46,6 +46,7 @@ https://bitbucket.org/jeschippers/strapinuxtbootstrap/
 ## Migrate date using the file provided in migrations folder
 
  **use the import command given below.**
+ with encryption key `sambert`
  
  OR
  
