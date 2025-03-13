@@ -16,8 +16,7 @@
       "type": "dynamiczone",
       "components": [
         "menu.menu-link",
-        "menu.menu-button",
-        "menu.dropdown"
+        "menu.menu-button"
       ]
     }
   }

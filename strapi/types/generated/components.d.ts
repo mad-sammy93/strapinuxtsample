@@ -1,5 +1,21 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface NavNavItems extends Schema.Component {
+  collectionName: 'components_nav_nav_items';
+  info: {
+    displayName: 'NavItems';
+    icon: 'filter';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
+    path: Attribute.String & Attribute.Required;
+    is_external: Attribute.Boolean & Attribute.DefaultTo<false>;
+    page: Attribute.Relation<'nav.nav-items', 'oneToOne', 'api::page.page'>;
+  };
+}
+
 export interface MoleculesDishCard extends Schema.Component {
   collectionName: 'components_molecules_dish_cards';
   info: {
@@ -35,6 +51,58 @@ export interface MoleculesCard extends Schema.Component {
     description: Attribute.Text;
     link: Attribute.String;
     image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface MenuTitle extends Schema.Component {
+  collectionName: 'components_menu_titles';
+  info: {
+    displayName: 'title';
+  };
+  attributes: {
+    sections: Attribute.Relation<
+      'menu.title',
+      'oneToMany',
+      'api::section.section'
+    >;
+  };
+}
+
+export interface MenuMenuLink extends Schema.Component {
+  collectionName: 'components_menu_menu_links';
+  info: {
+    displayName: 'MenuLink';
+    icon: 'link';
+  };
+  attributes: {
+    title: Attribute.String;
+    url: Attribute.String;
+  };
+}
+
+export interface MenuMenuButton extends Schema.Component {
+  collectionName: 'components_menu_menu_buttons';
+  info: {
+    displayName: 'MenuButton';
+    icon: 'filter';
+  };
+  attributes: {
+    title: Attribute.String;
+    url: Attribute.String;
+    type: Attribute.Enumeration<['Primary', 'Secondary']>;
+  };
+}
+
+export interface MenuLink extends Schema.Component {
+  collectionName: 'components_menu_links';
+  info: {
+    displayName: 'link';
+  };
+  attributes: {
+    name: Attribute.String;
+    url: Attribute.String;
+    description: Attribute.String;
+    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -114,90 +182,6 @@ export interface BlockContact extends Schema.Component {
   };
 }
 
-export interface NavNavItems extends Schema.Component {
-  collectionName: 'components_nav_nav_items';
-  info: {
-    displayName: 'NavItems';
-    icon: 'filter';
-    description: '';
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    slug: Attribute.String & Attribute.Required;
-    path: Attribute.String & Attribute.Required;
-    is_external: Attribute.Boolean & Attribute.DefaultTo<false>;
-    page: Attribute.Relation<'nav.nav-items', 'oneToOne', 'api::page.page'>;
-  };
-}
-
-export interface MenuTitle extends Schema.Component {
-  collectionName: 'components_menu_titles';
-  info: {
-    displayName: 'title';
-  };
-  attributes: {
-    sections: Attribute.Relation<
-      'menu.title',
-      'oneToMany',
-      'api::section.section'
-    >;
-  };
-}
-
-export interface MenuMenuLink extends Schema.Component {
-  collectionName: 'components_menu_menu_links';
-  info: {
-    displayName: 'MenuLink';
-    icon: 'link';
-  };
-  attributes: {
-    title: Attribute.String;
-    url: Attribute.String;
-  };
-}
-
-export interface MenuMenuButton extends Schema.Component {
-  collectionName: 'components_menu_menu_buttons';
-  info: {
-    displayName: 'MenuButton';
-    icon: 'filter';
-  };
-  attributes: {
-    title: Attribute.String;
-    url: Attribute.String;
-    type: Attribute.Enumeration<['Primary', 'Secondary']>;
-  };
-}
-
-export interface MenuLink extends Schema.Component {
-  collectionName: 'components_menu_links';
-  info: {
-    displayName: 'link';
-  };
-  attributes: {
-    name: Attribute.String;
-    url: Attribute.String;
-    description: Attribute.String;
-    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
-export interface MenuDropdown extends Schema.Component {
-  collectionName: 'components_menu_dropdowns';
-  info: {
-    displayName: 'Dropdown';
-    icon: 'layer';
-  };
-  attributes: {
-    title: Attribute.String;
-    sections: Attribute.Relation<
-      'menu.dropdown',
-      'oneToMany',
-      'api::section.section'
-    >;
-  };
-}
-
 export interface AtomQuote extends Schema.Component {
   collectionName: 'components_atom_quotes';
   info: {
@@ -251,21 +235,20 @@ export interface AtomButton extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'nav.nav-items': NavNavItems;
       'molecules.dish-card': MoleculesDishCard;
       'molecules.chef-card': MoleculesChefCard;
       'molecules.card': MoleculesCard;
+      'menu.title': MenuTitle;
+      'menu.menu-link': MenuMenuLink;
+      'menu.menu-button': MenuMenuButton;
+      'menu.link': MenuLink;
       'list.list-chef': ListListChef;
       'block.list-chef': BlockListChef;
       'block.image-1440px': BlockImage1440Px;
       'block.hero': BlockHero;
       'block.cta-dishes': BlockCtaDishes;
       'block.contact': BlockContact;
-      'nav.nav-items': NavNavItems;
-      'menu.title': MenuTitle;
-      'menu.menu-link': MenuMenuLink;
-      'menu.menu-button': MenuMenuButton;
-      'menu.link': MenuLink;
-      'menu.dropdown': MenuDropdown;
       'atom.quote': AtomQuote;
       'atom.button': AtomButton;
     }

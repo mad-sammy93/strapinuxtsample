@@ -15,6 +15,7 @@ export type Scalars = {
   DateTime: { input: any; output: any; }
   HomepageBlocksDynamicZoneInput: { input: any; output: any; }
   JSON: { input: any; output: any; }
+  MainMenuMainmenuitemsDynamicZoneInput: { input: any; output: any; }
   PagePageBlockDynamicZoneInput: { input: any; output: any; }
   Upload: { input: any; output: any; }
 };
@@ -245,6 +246,61 @@ export type ComponentListListChefChefsArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type ComponentMenuLink = {
+  __typename?: 'ComponentMenuLink';
+  description?: Maybe<Scalars['String']['output']>;
+  icon?: Maybe<UploadFileEntityResponse>;
+  id: Scalars['ID']['output'];
+  name?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentMenuLinkFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentMenuLinkFiltersInput>>>;
+  description?: InputMaybe<StringFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentMenuLinkFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentMenuLinkFiltersInput>>>;
+  url?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentMenuLinkInput = {
+  description?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['ID']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  url?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentMenuMenuButton = {
+  __typename?: 'ComponentMenuMenuButton';
+  id: Scalars['ID']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Enum_Componentmenumenubutton_Type>;
+  url?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentMenuMenuLink = {
+  __typename?: 'ComponentMenuMenuLink';
+  id: Scalars['ID']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentMenuTitle = {
+  __typename?: 'ComponentMenuTitle';
+  id: Scalars['ID']['output'];
+  sections?: Maybe<SectionRelationResponseCollection>;
+};
+
+
+export type ComponentMenuTitleSectionsArgs = {
+  filters?: InputMaybe<SectionFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type ComponentMoleculesCard = {
   __typename?: 'ComponentMoleculesCard';
   description?: Maybe<Scalars['String']['output']>;
@@ -421,6 +477,11 @@ export enum Enum_Componentatomquote_Size {
   SizeXl = 'size_xl'
 }
 
+export enum Enum_Componentmenumenubutton_Type {
+  Primary = 'Primary',
+  Secondary = 'Secondary'
+}
+
 export enum Enum_Componentmoleculeschefcard_Size {
   Full = 'full',
   Half = 'half'
@@ -468,7 +529,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = Category | Chef | ComponentAtomButton | ComponentAtomQuote | ComponentBlockContact | ComponentBlockCtaDishes | ComponentBlockHero | ComponentBlockImage1440Px | ComponentBlockListChef | ComponentListListChef | ComponentMoleculesCard | ComponentMoleculesChefCard | ComponentMoleculesDishCard | ComponentNavNavItems | Dish | Homepage | I18NLocale | Navigation | Page | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | WebsiteInfo;
+export type GenericMorph = Category | Chef | ComponentAtomButton | ComponentAtomQuote | ComponentBlockContact | ComponentBlockCtaDishes | ComponentBlockHero | ComponentBlockImage1440Px | ComponentBlockListChef | ComponentListListChef | ComponentMenuLink | ComponentMenuMenuButton | ComponentMenuMenuLink | ComponentMenuTitle | ComponentMoleculesCard | ComponentMoleculesChefCard | ComponentMoleculesDishCard | ComponentNavNavItems | Dish | Homepage | I18NLocale | MainMenu | Navigation | Page | Section | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | WebsiteInfo;
 
 export type Homepage = {
   __typename?: 'Homepage';
@@ -607,6 +668,32 @@ export type JsonFilterInput = {
   startsWith?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type MainMenu = {
+  __typename?: 'MainMenu';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  mainmenuitems?: Maybe<Array<Maybe<MainMenuMainmenuitemsDynamicZone>>>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type MainMenuEntity = {
+  __typename?: 'MainMenuEntity';
+  attributes?: Maybe<MainMenu>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type MainMenuEntityResponse = {
+  __typename?: 'MainMenuEntityResponse';
+  data?: Maybe<MainMenuEntity>;
+};
+
+export type MainMenuInput = {
+  mainmenuitems?: InputMaybe<Array<Scalars['MainMenuMainmenuitemsDynamicZoneInput']['input']>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type MainMenuMainmenuitemsDynamicZone = ComponentMenuMenuButton | ComponentMenuMenuLink | Error;
+
 export type Mutation = {
   __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
@@ -615,6 +702,7 @@ export type Mutation = {
   createChef?: Maybe<ChefEntityResponse>;
   createDish?: Maybe<DishEntityResponse>;
   createPage?: Maybe<PageEntityResponse>;
+  createSection?: Maybe<SectionEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   createUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Create a new role */
@@ -625,8 +713,10 @@ export type Mutation = {
   deleteChef?: Maybe<ChefEntityResponse>;
   deleteDish?: Maybe<DishEntityResponse>;
   deleteHomepage?: Maybe<HomepageEntityResponse>;
+  deleteMainMenu?: Maybe<MainMenuEntityResponse>;
   deleteNavigation?: Maybe<NavigationEntityResponse>;
   deletePage?: Maybe<PageEntityResponse>;
+  deleteSection?: Maybe<SectionEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Delete an existing role */
@@ -650,8 +740,10 @@ export type Mutation = {
   updateDish?: Maybe<DishEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updateHomepage?: Maybe<HomepageEntityResponse>;
+  updateMainMenu?: Maybe<MainMenuEntityResponse>;
   updateNavigation?: Maybe<NavigationEntityResponse>;
   updatePage?: Maybe<PageEntityResponse>;
+  updateSection?: Maybe<SectionEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Update an existing role */
@@ -687,6 +779,11 @@ export type MutationCreateDishArgs = {
 
 export type MutationCreatePageArgs = {
   data: PageInput;
+};
+
+
+export type MutationCreateSectionArgs = {
+  data: SectionInput;
 };
 
 
@@ -726,6 +823,11 @@ export type MutationDeleteDishArgs = {
 
 
 export type MutationDeletePageArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteSectionArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -819,6 +921,11 @@ export type MutationUpdateHomepageArgs = {
 };
 
 
+export type MutationUpdateMainMenuArgs = {
+  data: MainMenuInput;
+};
+
+
 export type MutationUpdateNavigationArgs = {
   data: NavigationInput;
 };
@@ -826,6 +933,12 @@ export type MutationUpdateNavigationArgs = {
 
 export type MutationUpdatePageArgs = {
   data: PageInput;
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationUpdateSectionArgs = {
+  data: SectionInput;
   id: Scalars['ID']['input'];
 };
 
@@ -977,10 +1090,13 @@ export type Query = {
   homepage?: Maybe<HomepageEntityResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
+  mainMenu?: Maybe<MainMenuEntityResponse>;
   me?: Maybe<UsersPermissionsMe>;
   navigation?: Maybe<NavigationEntityResponse>;
   page?: Maybe<PageEntityResponse>;
   pages?: Maybe<PageEntityResponseCollection>;
+  section?: Maybe<SectionEntityResponse>;
+  sections?: Maybe<SectionEntityResponseCollection>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
   uploadFolder?: Maybe<UploadFolderEntityResponse>;
@@ -1049,6 +1165,11 @@ export type QueryI18NLocalesArgs = {
 };
 
 
+export type QueryMainMenuArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
 export type QueryNavigationArgs = {
   publicationState?: InputMaybe<PublicationState>;
 };
@@ -1061,6 +1182,19 @@ export type QueryPageArgs = {
 
 export type QueryPagesArgs = {
   filters?: InputMaybe<PageFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QuerySectionArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+
+export type QuerySectionsArgs = {
+  filters?: InputMaybe<SectionFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1122,6 +1256,62 @@ export type QueryWebsiteInfoArgs = {
 export type ResponseCollectionMeta = {
   __typename?: 'ResponseCollectionMeta';
   pagination: Pagination;
+};
+
+export type Section = {
+  __typename?: 'Section';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  heading?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Array<Maybe<ComponentMenuLink>>>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type SectionLinkArgs = {
+  filters?: InputMaybe<ComponentMenuLinkFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type SectionEntity = {
+  __typename?: 'SectionEntity';
+  attributes?: Maybe<Section>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type SectionEntityResponse = {
+  __typename?: 'SectionEntityResponse';
+  data?: Maybe<SectionEntity>;
+};
+
+export type SectionEntityResponseCollection = {
+  __typename?: 'SectionEntityResponseCollection';
+  data: Array<SectionEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type SectionFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<SectionFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  heading?: InputMaybe<StringFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  link?: InputMaybe<ComponentMenuLinkFiltersInput>;
+  not?: InputMaybe<SectionFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<SectionFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type SectionInput = {
+  heading?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Array<InputMaybe<ComponentMenuLinkInput>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type SectionRelationResponseCollection = {
+  __typename?: 'SectionRelationResponseCollection';
+  data: Array<SectionEntity>;
 };
 
 export type StringFilterInput = {
